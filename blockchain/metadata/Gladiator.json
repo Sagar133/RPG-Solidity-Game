@@ -1,0 +1,20 @@
+ 
+{
+    "name": "elio",
+    "description": "Beast with no stamina",
+    "image": "https://ipfs.io/ipfs/QmQFthJDvAVVYSBZGekf14Jmj33W6syFtjgK5wRnjVnWXp?filename=dev.png",
+    "attributes": [
+        {
+            "trait_type": "strength",
+            "value": 95
+        },
+        {
+            "trait_type": "speed",
+            "value": 3
+        },
+        {
+            "trait_type": "stamina",
+            "value": 17
+        }
+    ]
+}
