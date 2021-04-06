@@ -19,19 +19,16 @@ module.exports = {
       port: 7545,
       network_id: '*',
     },
-
     rinkeby: {
-      provider: function() {
+      provider: function () {
         return new HDWalletProvider(mnemonic, Url)
       },
-    network_id: "4",
-    networkCheckTimeout: 1000000,
-    timeoutBlocks: 200,
-    skipDryRun: false
-    // addressIndex: 2
-    
-
-  }
+      network_id: "4",
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200,
+      skipDryRun: false
+      // addressIndex: 2
+    }
   },
   compilers: {
     solc: {
