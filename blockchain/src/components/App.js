@@ -8,6 +8,17 @@ import Web3 from 'web3';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isRewarded: false,
+      isMinting: false,
+      isLoggedIn: false,
+      // items: [], 
+      account: '' 
+    };
+  }
+
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
@@ -20,14 +31,11 @@ class App extends Component {
       window.alert("Non ethereum browser detected. You should consider trying Metamask")
     }
   }
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      isRewarded: false,
-      isMinting: false,
-      isLoggedIn: false,
-    };
+
+  async loadBlockchainData() {
+    const web3 = window.web3
+    const accounts = await web3.eth.getAccounts()
+    this.setState({account: accounts[0]})
   }
   
 
@@ -49,7 +57,7 @@ class App extends Component {
           </a>
           <ul className='navbar-nav px-3'>
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className='text-white'><span id='account'>Account address</span></small>
+              <small className='text-white'><span id='account'>{this.state.account}</span></small>
             </li>
           </ul>
         </nav>
