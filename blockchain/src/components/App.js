@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './App.css';
 import Web3 from 'web3';
+import GladiatorCharacter from '../../build/contracts/GladiatorCharacter.json'
 
 class App extends Component {
 
@@ -38,6 +39,18 @@ class App extends Component {
     const web3 = window.web3
     const accounts = await web3.eth.getAccounts()
     this.setState({account: accounts[0]})
+
+    const networkId = await web3.eth.net.getId()
+    const networkData = GladiatorCharacter.networks[networkId]
+    if(networkData){
+      const abi = []
+      const address = networkData.address
+      const contract = new web3.eth.Contract(abi, address)
+      console.log(contract)
+    } else {
+      window.alert('Smart contract not deployed to the detected network')
+    }
+    
   }
   
 
