@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './App.css';
 import Web3 from 'web3';
-import GladiatorCharacter from '../../build/contracts/GladiatorCharacter.json'
+import GladiatorCharacter from '../build/contracts/GladiatorCharacter.json'
 
 class App extends Component {
 
