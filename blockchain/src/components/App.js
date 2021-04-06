@@ -4,15 +4,53 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './App.css';
+import Web3 from 'web3';
+import GladiatorCharacter from '../build/contracts/GladiatorCharacter.json'
 
 class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
       isRewarded: false,
       isMinting: false,
       isLoggedIn: false,
+      // items: [], 
+      account: '' 
     };
+    this.loadWeb3();
+    this.loadBlockchainData();
+  }
+
+  async loadWeb3() {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum)
+      await window.ethereum.enable()
+    }
+    else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider)
+    }
+    else {
+      window.alert("Non ethereum browser detected. You should consider trying Metamask")
+    }
+  }
+
+  async loadBlockchainData() {
+    const web3 = window.web3
+    const accounts = await web3.eth.getAccounts()
+    this.setState({account: accounts[0]})
+
+    const networkId = await web3.eth.net.getId()
+    const networkData = GladiatorCharacter.networks[networkId]
+    if(networkData){
+      const abi = []
+      const address = networkData.address
+      const contract = new web3.eth.Contract(abi, address)
+      console.log(contract)
+    } else {
+      window.alert('Smart contract not deployed to the detected network')
+    }
+    
   }
   
 
@@ -32,6 +70,11 @@ class App extends Component {
           >
             Dungeons Game
           </a>
+          <ul className='navbar-nav px-3'>
+            <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
+              <small className='text-white'><span id='account'>{this.state.account}</span></small>
+            </li>
+          </ul>
         </nav>
         <div className='nft-sec'>
           <div className="dungeon">

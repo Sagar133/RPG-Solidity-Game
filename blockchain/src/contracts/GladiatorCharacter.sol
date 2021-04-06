@@ -18,8 +18,8 @@ contract GladiatorCharacter is ERC721, VRFConsumerBase {
     uint256 public randomResult;
     address public Linktoken;
 
-    struct Character {
-        uint256 strength;
+    struct Character { //trophy
+        uint256 strength; // rarity, tokenId
         uint256 speed;
         uint256 stamina;
         string name;
