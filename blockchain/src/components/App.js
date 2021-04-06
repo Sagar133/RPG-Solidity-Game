@@ -4,8 +4,23 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './App.css';
+import Web3 from 'web3';
 
 class App extends Component {
+
+  async loadWeb3() {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum)
+      await window.ethereum.enable()
+    }
+    else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider)
+    }
+    else {
+      window.alert("Non ethereum browser detected. You should consider trying Metamask")
+    }
+  }
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +47,11 @@ class App extends Component {
           >
             Dungeons Game
           </a>
+          <ul className='navbar-nav px-3'>
+            <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
+              <small className='text-white'><span id='account'>Account address</span></small>
+            </li>
+          </ul>
         </nav>
         <div className='nft-sec'>
           <div className="dungeon">
