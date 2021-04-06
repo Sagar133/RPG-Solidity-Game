@@ -17,6 +17,8 @@ class App extends Component {
       // items: [], 
       account: '' 
     };
+    this.loadWeb3();
+    this.loadBlockchainData();
   }
 
   async loadWeb3() {
