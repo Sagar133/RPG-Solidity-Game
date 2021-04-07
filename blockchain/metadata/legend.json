@@ -1,16 +1,16 @@
  
 {
-    "name": "btc",
-    "description": "Ride it to ATH",
-    "image": "https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png",
+    "name": "legend",
+    "description": "Surprise",
+    "image": "https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png",
     "attributes": [
         {
             "trait_type": "rarity",
-            "value": 51
+            "value": 42
         },
         {
             "trait_type": "worth",
-            "value": 7
+            "value": 5
         }
     ]
 }

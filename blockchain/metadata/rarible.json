@@ -1,0 +1,16 @@
+ 
+{
+    "name": "rarible",
+    "description": "Ride it to ATH",
+    "image": "https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png",
+    "attributes": [
+        {
+            "trait_type": "rarity",
+            "value": 71
+        },
+        {
+            "trait_type": "worth",
+            "value": 4
+        }
+    ]
+}
