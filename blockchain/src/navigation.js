@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 import history from './history';
 
-import Selection from './components/App';
+import Selection from './components/Selection';
 import Upload from './components/Upload';
 import Login from './components/Login';
 import Booth from './components/Booth';
