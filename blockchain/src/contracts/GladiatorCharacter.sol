@@ -9,11 +9,12 @@ pragma solidity ^0.6.12;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
+// import "@openzeppelin/contracts/access/Ownable.sol";
+// import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract GladiatorCharacter is ERC721, VRFConsumerBase {
     bytes32 public keyHash;
     address public VRFCoordinator;
-    // bytes32 internal keyHash;
     uint256 internal fee;
     uint256 public randomResult;
     address public Linktoken;
