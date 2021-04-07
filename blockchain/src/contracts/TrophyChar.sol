@@ -124,7 +124,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     {
         return (
             trophies[tokenId].rarity,
-            trophies[tokenId].worth,
+            trophies[tokenId].worth
         );
     }
 
