@@ -9,10 +9,12 @@ pragma solidity ^0.6.12;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
-// import "@openzeppelin/contracts/access/Ownable.sol";
-// import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract TrophyChar is ERC721, VRFConsumerBase {
+    using SafeMath for uint256;
+    using Strings for string;
     bytes32 public keyHash;
     address public VRFCoordinator;
     uint256 internal fee;
@@ -43,6 +45,10 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     }
 
     function requestNewRandomTrophy (uint256 userProvidedSeed, string memory name) public returns (bytes32) {
+        require(
+            LINK.balanceOf(address(this)) >= fee,
+            "Not enough LINK - fill contract with faucet"
+        );
         bytes32 requestId = requestRandomness(keyHash, fee, userProvidedSeed);
         requestToTrophyName[requestId] = name;
         requestToSender[requestId] = msg.sender;
@@ -77,5 +83,62 @@ contract TrophyChar is ERC721, VRFConsumerBase {
         _setTokenURI(tokenId, _tokenURI);
 
     }
+
+    function getTokenURI(uint256 tokenId) public view returns (string memory) {
+        return tokenURI(tokenId);
+    }
+
+    function getLevel(uint256 tokenId) public view returns (uint256) {
+        return sqrt(trophies[tokenId].rarity);
+    }
+
+    function getNumberOfTrophies() public view returns (uint256) {
+        return trophies.length; 
+    }
+
+    function getTrophyOverView(uint256 tokenId)
+        public
+        view
+        returns (
+            string memory,
+            uint256,
+            uint256,
+            uint256
+        )
+    {
+        return (
+            trophies[tokenId].name,
+            trophies[tokenId].rarity + trophies[tokenId].worth, 
+            getLevel(tokenId),
+            trophies[tokenId].rarity
+        );
+    }
+
+    function getTrophyStats(uint256 tokenId)
+        public
+        view
+        returns (
+            uint256,
+            uint256
+        )
+    {
+        return (
+            trophies[tokenId].rarity,
+            trophies[tokenId].worth,
+        );
+    }
+
+    function sqrt(uint256 x) internal view returns (uint256 y) {
+        uint256 z = (x + 1) / 2;
+        y = x;
+        while (z < y) {
+            y = z;
+            z = (x / z + z) / 2;
+        }
+    }
+
+
+
+
 
 }
