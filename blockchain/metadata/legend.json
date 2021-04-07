@@ -1,0 +1,16 @@
+ 
+{
+    "name": "btc",
+    "description": "Ride it to ATH",
+    "image": "https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png",
+    "attributes": [
+        {
+            "trait_type": "rarity",
+            "value": 51
+        },
+        {
+            "trait_type": "worth",
+            "value": 7
+        }
+    ]
+}

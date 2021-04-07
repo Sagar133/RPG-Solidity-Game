@@ -1,0 +1,16 @@
+ 
+{
+    "name": "crystal",
+    "description": "HODL it",
+    "image": "https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png",
+    "attributes": [
+        {
+            "trait_type": "rarity",
+            "value": 19
+        },
+        {
+            "trait_type": "worth",
+            "value": 9
+        }
+    ]
+}

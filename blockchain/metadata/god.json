@@ -1,0 +1,16 @@
+ 
+{
+    "name": "god",
+    "description": "Surprise",
+    "image": "https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png",
+    "attributes": [
+        {
+            "trait_type": "rarity",
+            "value": 82
+        },
+        {
+            "trait_type": "worth",
+            "value": 8
+        }
+    ]
+}
