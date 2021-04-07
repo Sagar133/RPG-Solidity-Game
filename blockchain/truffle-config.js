@@ -30,6 +30,8 @@ module.exports = {
       // addressIndex: 2
     }
   },
+  contracts_directory: './src/contracts/',
+  contracts_build_directory: './src/abis/',
   compilers: {
     solc: {
       version: "0.6.12",
