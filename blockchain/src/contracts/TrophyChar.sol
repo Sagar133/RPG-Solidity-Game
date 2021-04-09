@@ -1,4 +1,3 @@
-// contracts/Trophy.sol
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.6.12;
@@ -20,59 +19,93 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     uint256 internal fee;
     uint256 public randomResult;
     address public Linktoken;
+    uint256 public tokensCount;
+    address public add;
 
-    struct Trophy {
+    struct Trophy  {
+        uint256 tokenId;
         uint256 rarity;
         uint256 worth;
         string name;
+        uint256 levelPass;
     }
 
     Trophy[] public trophies;
-    // mappings will go here 
+    // mappings will go here
     mapping(bytes32 => string) requestToTrophyName;
+    mapping(bytes32 => uint256) requestToLevel;
     mapping(bytes32 => address) requestToSender;
+    mapping(bytes32 => address) requestAddress;
     mapping(bytes32 => uint256) requestToTokenId;
-
-
-
-    constructor(address _VRFCoordinator, address _LinkToken, bytes32 _keyHash) public
-    VRFConsumerBase(_VRFCoordinator, _LinkToken) 
-    ERC721("TrophyChar", "TRP") {
+    mapping(address => mapping(uint256 => Trophy)) public usersNft;
+    mapping(address => uint256) public usersNftCount;
+    
+    constructor(
+        address _VRFCoordinator,
+        address _LinkToken,
+        bytes32 _keyHash
+    )
+        public
+        VRFConsumerBase(_VRFCoordinator, _LinkToken)
+        ERC721("TrophyChar", "TRP")
+    {
         VRFCoordinator = _VRFCoordinator;
         keyHash = _keyHash;
         Linktoken = _LinkToken;
-        fee = 0.1 * 10**18; // 0.1 LINK     
+        fee = 0.1 * 10**18; // 0.1 LINK
     }
 
-    function requestNewRandomTrophy (uint256 userProvidedSeed, string memory name) public returns (bytes32) {
+    function requestNewRandomTrophy(
+        uint256 userProvidedSeed,
+        string memory name,
+        uint256 levelPass,
+        address walletAddress
+    ) public returns (bytes32) {
         require(
             LINK.balanceOf(address(this)) >= fee,
             "Not enough LINK - fill contract with faucet"
         );
         bytes32 requestId = requestRandomness(keyHash, fee, userProvidedSeed);
         requestToTrophyName[requestId] = name;
+        requestToLevel[requestId] = levelPass;
         requestToSender[requestId] = msg.sender;
+        requestAddress[requestId] = walletAddress;
+        
         return requestId;
     }
 
     function fulfillRandomness(bytes32 requestId, uint256 randomNumber)
-    internal override {
+        internal
+        override
+    {
         //define the NFT
         uint256 newId = trophies.length;
         uint256 rarity = (randomNumber % 100);
         uint256 worth = ((randomNumber % 1000) / 100);
-        // uint256 stamina = ((randomNumber % 1000000) / 10000);
 
         trophies.push(
             Trophy(
+                newId,
                 rarity,
                 worth,
-                // stamina,
-                requestToTrophyName[requestId]
+                requestToTrophyName[requestId],
+                requestToLevel[requestId]
             )
         );
+        
+        tokensCount++;
+        add = requestAddress[requestId];
+        usersNftCount[requestAddress[requestId]] = usersNftCount[requestAddress[requestId]] + 1;
+        
+        usersNft[requestAddress[requestId]][usersNftCount[requestAddress[requestId]]] = Trophy(
+                newId,
+                rarity,
+                worth,
+                requestToTrophyName[requestId],
+                requestToLevel[requestId]
+            );
+        
         _safeMint(requestToSender[requestId], newId);
-
     }
 
     function setTokenURI(uint256 tokenId, string memory _tokenURI) public {
@@ -81,7 +114,6 @@ contract TrophyChar is ERC721, VRFConsumerBase {
             "ERC721: transfer caller is not owner nor approved"
         );
         _setTokenURI(tokenId, _tokenURI);
-
     }
 
     function getTokenURI(uint256 tokenId) public view returns (string memory) {
@@ -93,7 +125,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     }
 
     function getNumberOfTrophies() public view returns (uint256) {
-        return trophies.length; 
+        return trophies.length;
     }
 
     function getTrophyOverView(uint256 tokenId)
@@ -108,7 +140,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     {
         return (
             trophies[tokenId].name,
-            trophies[tokenId].rarity + trophies[tokenId].worth, 
+            trophies[tokenId].rarity + trophies[tokenId].worth,
             getLevel(tokenId),
             trophies[tokenId].rarity
         );
@@ -117,15 +149,9 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     function getTrophyStats(uint256 tokenId)
         public
         view
-        returns (
-            uint256,
-            uint256
-        )
+        returns (uint256, uint256)
     {
-        return (
-            trophies[tokenId].rarity,
-            trophies[tokenId].worth
-        );
+        return (trophies[tokenId].rarity, trophies[tokenId].worth);
     }
 
     function sqrt(uint256 x) internal view returns (uint256 y) {
@@ -136,9 +162,4 @@ contract TrophyChar is ERC721, VRFConsumerBase {
             z = (x / z + z) / 2;
         }
     }
-
-
-
-
-
 }

@@ -1,16 +1,13 @@
 import Phaser from 'phaser';
-
-import logoImg from './assets/logo.png';
+//import logoImg from './assets/logo.png';
 import logoImg2 from './assets/dungenTileset.png';
 import dungenMap from './assets/dungen-01.json';
-
 import tilesetterain from './assets/tropical.png'
 import tilesetdecor from './assets/decor.png'
 import tilesetdungon from './assets/dungon.png'
 import tilsetcastle from './assets/castle.png'
 import tilsetpillar from './assets/pillar.png'
 import tilsetwalldecor from './assets/walldecor.png'
-
 import heroJson from './assets/hero.json';
 import heroPng from './assets/hero.png'
 import lizardPng from './assets/lizard.png'
@@ -41,13 +38,8 @@ import torchburnJson from './assets/torch_burn.json'
 import torchburnPng from './assets/torch_burn.png'
 import walltorchJson from './assets/torch.json'
 import walltorchPng from './assets/torch.png'
-
 import chainlinkPng from './assets/chainlink.png'
-
-
-
 import weapon from './assets/weapon_knife.png'
-
 import chestPng from './assets/chest.png'
 import chestJson from './assets/chest.json'
 import coinPng from './assets/coins.png'
@@ -64,11 +56,8 @@ import keyPng from './assets/key.png'
 import keyJson from './assets/key.json'
 import doorwoodJSon from './assets/door_1.json'
 import doorwoodPng from './assets/door_1.png'
-
 import flaskJson from './assets/flask.json'
 import flaskPng from './assets/flask.png'
-
-
 import dungeonsound from './assets/dungeon_theme_2.mp3'
 import femalefaint from './assets/female-faint.mp3'
 import dooropen from './assets/jail_cell_door.mp3'
@@ -109,10 +98,7 @@ import { createtradecompAnims } from './animation/doorAnims/tradecompanims'
 import { createtorchburnAnims } from './animation/doorAnims/torchburnAnims'
 import { createWalltorchAnims } from './animation/doorAnims/walltorchAnims'
 
-
-
 import sceneEvents from './events/eventsCenter'
-
 import Heart from './heart'
 import Coin from './coins'
 import Lizard from './enemies/lizard'
@@ -139,10 +125,6 @@ import Tradecomp from './treasure/tradecomp'
 import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
 
-
-
-
-
 var cursors
 var faune, lizard
 var hit = 0
@@ -163,13 +145,9 @@ var keys
 var chainlink_count = 0
 var ghost_health = 4
 var angel_health = 5
-
 var tradecomp
 
-
-
 let speed = 150
-
 
 class MyGame extends Phaser.Scene {
     constructor() {
@@ -184,9 +162,7 @@ class MyGame extends Phaser.Scene {
         this.load.image('tilecastle', tilsetcastle)
         this.load.image('tilsepillar', tilsetpillar)
         this.load.image('tilsetwalldecor', tilsetwalldecor)
-
         this.load.tilemapTiledJSON('dungeon', dungenMap)
-
         this.load.atlas('faune', heroPng, heroJson)
         this.load.atlas('lizard', lizardPng, lizardJson)
         this.load.atlas('treasure', chestPng, chestJson)
@@ -203,22 +179,16 @@ class MyGame extends Phaser.Scene {
         this.load.atlas('angel', angelPng, angelJson)
         this.load.atlas('torchburn', torchburnPng, torchburnJson)
         this.load.atlas('walltorch', walltorchPng, walltorchJson)
-        
-
         this.load.atlas('door', doorPng, doorJson)
         this.load.atlas('spikes', spikesPng, spikesJson)
         this.load.atlas('wall', wallPng, wallJson)
         this.load.atlas('flamethrow', flamethrowPng, flamethrowJson)
         this.load.atlas('key', keyPng, keyJson)
         this.load.atlas('doorwood', doorwoodPng, doorwoodJSon)
-        
         this.load.image('knife', weapon)
         this.load.atlas('tradecomp', tradecompPng, tradecompJson)
         this.load.atlas('flask', flaskPng, flaskJson)
-
         this.load.image('chainlink', chainlinkPng)
-       
-
         this.load.audio('dungeonsound', dungeonsound)
         this.load.audio('femalefaint', femalefaint)
         this.load.audio('dooropen', dooropen)
@@ -231,7 +201,7 @@ class MyGame extends Phaser.Scene {
         this.load.audio('spiketrap', spiketrap)
         this.load.audio('ghoulsound', ghoulsound)
         this.load.audio('ghostsound', ghostsound)
-        
+
 
         cursors = this.input.keyboard.createCursorKeys()
     }
@@ -267,8 +237,8 @@ class MyGame extends Phaser.Scene {
         createtradecompAnims(this.anims)
         createtorchburnAnims(this.anims)
         createWalltorchAnims(this.anims)
-             
-        
+
+
         const map = this.make.tilemap({ key: 'dungeon' })
         const tileset = map.addTilesetImage('dungenTileset', 'tiles')
         const tilesetterrain = map.addTilesetImage('tropical', 'tilesterrain')
@@ -277,21 +247,21 @@ class MyGame extends Phaser.Scene {
         const tilesetcastle = map.addTilesetImage('castle', 'tilecastle')
         const tilesetpillar = map.addTilesetImage('pillar', 'tilsepillar')
         const tilesetwalldecor = map.addTilesetImage('walldecor', 'tilsetwalldecor')
-        
-        map.createLayer('Ground', [tileset, tilesetdungong, tilesetdecorr, tilesetterrain,tilesetpillar,tilesetcastle,tilesetwalldecor ])
-        const wallsLayer = map.createLayer('Walls', [tileset, tilesetdungong, tilesetdecorr, tilesetterrain,tilesetpillar,tilesetcastle,tilesetwalldecor ])
-        const SkeletonLayer = map.createLayer('Skeleton', [tileset, tilesetdungong, tilesetdecorr, tilesetterrain,tilesetpillar,tilesetcastle,tilesetwalldecor ])
-       
+
+        map.createLayer('Ground', [tileset, tilesetdungong, tilesetdecorr, tilesetterrain, tilesetpillar, tilesetcastle, tilesetwalldecor])
+        const wallsLayer = map.createLayer('Walls', [tileset, tilesetdungong, tilesetdecorr, tilesetterrain, tilesetpillar, tilesetcastle, tilesetwalldecor])
+        const SkeletonLayer = map.createLayer('Skeleton', [tileset, tilesetdungong, tilesetdecorr, tilesetterrain, tilesetpillar, tilesetcastle, tilesetwalldecor])
+
         SkeletonLayer.setCollisionByProperty({ collides: true })
         wallsLayer.setCollisionByProperty({ collides: true })
-       
+
         faune = this.physics.add.sprite(128, 128, 'faune', 'walk-down-3.png')
         faune.body.setSize(faune.width * 0.5, faune.height * 0.8)
 
         //tradecomp = this.physics.add.image(160,150,'tradecomp')
 
         this.dungeonsound = this.sound.add('dungeonsound')
-        this.dungeonsound.play();  
+        this.dungeonsound.play();
 
         const chainlinks = this.physics.add.group({
             classType: Chainlink,
@@ -304,7 +274,7 @@ class MyGame extends Phaser.Scene {
         })
         chainlinks.get(1209, 622, 'chainlink').setImmovable();
 
-           
+
 
         const chests = this.physics.add.group({
             classType: Treasure,
@@ -414,7 +384,7 @@ class MyGame extends Phaser.Scene {
             }
         })
         doorwoods.get(1209, 968, 'doorwood').setImmovable();
-        
+
         const spikess = this.physics.add.group({
             classType: Spike,
             createCallback: (go) => {
@@ -467,7 +437,7 @@ class MyGame extends Phaser.Scene {
         wallss.get(1496, 297, 'wall').setImmovable();
         wallss.get(1510, 297, 'wall').setImmovable();
         wallss.get(1526, 297, 'wall').setImmovable();
-       
+
         const wizards = this.physics.add.group({
             classType: Wizard,
             createCallback: (go) => {
@@ -489,7 +459,7 @@ class MyGame extends Phaser.Scene {
             }
         })
         //wallss.get(817, 153, 'wall').setImmovable();
-        
+
 
         const flamethrows = this.physics.add.group({
             classType: flamethrowz,
@@ -520,8 +490,8 @@ class MyGame extends Phaser.Scene {
             }
         })
         lizards.get(256, 256, 'lizard')
-   
-       
+
+
         const newKnights = this.physics.add.group({
             classType: newKnightz,
             createCallback: (go) => {
@@ -586,7 +556,7 @@ class MyGame extends Phaser.Scene {
         })
         //ghostt.get(220, 260, 'ghost')
         ghostt.get(520, 900, 'ghost')
-        
+
 
         const ghoult = this.physics.add.group({
             classType: Ghoul,
@@ -599,7 +569,7 @@ class MyGame extends Phaser.Scene {
         })
         ghoult.get(630, 260, 'ghoul')
         ghoult.get(1215, 1095, 'ghoul')
-        
+
 
         const rockk = this.physics.add.group({
             classType: Rock,
@@ -645,7 +615,7 @@ class MyGame extends Phaser.Scene {
         // Knight.get(190, 490, 'Knight')
         // Knight.get(200, 490, 'Knight')
 
-        
+
         this.physics.world.setBounds(0, 0, 2000, 2000)
         this.cameras.main.setBounds(0, 0, 2000, 2000)
         this.cameras.main.startFollow(faune, true, 0.5, 0.5);
@@ -689,7 +659,7 @@ class MyGame extends Phaser.Scene {
         this.physics.add.collider(angell, ghostt)
         this.physics.add.collider(angell, wallsLayer)
         //this.physics.add.collider(doors, faune)
-        
+
 
         //this.physics.add.collider(chests, faune)
 
@@ -732,7 +702,7 @@ class MyGame extends Phaser.Scene {
         this.physics.add.collider(faune, tradecomp, this.handleplayertradecompcollide, undefined, this)
         //lizards.setVelocity(faune.x, faune.y)
     }
-  
+
 
     throwKnife() {
         //console.log('throw');
@@ -778,7 +748,7 @@ class MyGame extends Phaser.Scene {
         }
     }
 
-    handleplayertradecompcollide(obj1, obj2){
+    handleplayertradecompcollide(obj1, obj2) {
         console.log('trade')
     }
 
@@ -790,18 +760,18 @@ class MyGame extends Phaser.Scene {
     handleKnifeLizardCollision(obj1, obj2) {
         obj2.destroy()
         obj1.destroy()
-           
-        
+
+
     }
 
-    handleknifeRockcollide(obj1, obj2){
+    handleknifeRockcollide(obj1, obj2) {
         obj2.destroy()
         obj1.destroy()
 
         this.rockdie = this.sound.add('rockdie')
         this.rockdie.play();
-           
-        
+
+
     }
 
     handleKnifeDemonCollision(obj1, obj2) {
@@ -815,14 +785,14 @@ class MyGame extends Phaser.Scene {
         obj2.destroy()
         obj1.destroy()
         this.ghoulsound = this.sound.add('ghoulsound')
-        this.ghoulsound.play(); ;
+        this.ghoulsound.play();;
     }
 
     handleKnifeKnightCollision(obj1, obj2) {
         obj1.destroy()
         obj2.destroy()
-           
-        
+
+
     }
 
     handlePlayerLizardCollide(obj1, obj2) {
@@ -840,86 +810,86 @@ class MyGame extends Phaser.Scene {
         sceneEvents.emit('player-healt-changed', _health)
     }
 
-    handleknifeghostcollide(obj1, obj2){
+    handleknifeghostcollide(obj1, obj2) {
         obj1.destroy()
-        
-        
+
+
         ghost_health--
 
-        if(ghost_health === 4){       
+        if (ghost_health === 4) {
             console.log('hit1', ghost_health)
         }
 
-        if(ghost_health === 3){
+        if (ghost_health === 3) {
             console.log('hit2', ghost_health)
         }
 
-        if(ghost_health === 2){
+        if (ghost_health === 2) {
             console.log('hit3', ghost_health)
         }
 
-        if(ghost_health === 1){
+        if (ghost_health === 1) {
             console.log('hit3', ghost_health)
-            
+
         }
 
-        if(ghost_health === 0){
+        if (ghost_health === 0) {
 
-            
+
             this.ghostsound = this.sound.add('ghostsound')
             this.ghostsound.play();
             obj2.destroy()
             //keys.get(obj2.x + 18, obj2.y + 18, 'key').setImmovable();
         }
         //obj2.destroy()
-        
+
     }
 
-    handleknifeangelcollide(obj1, obj2){
+    handleknifeangelcollide(obj1, obj2) {
         obj1.destroy()
-        
+
         angel_health--
 
-        if(angel_health === 5){       
+        if (angel_health === 5) {
             console.log('hit1', angel_health)
         }
 
-        if(angel_health === 4){       
+        if (angel_health === 4) {
             console.log('hit1', angel_health)
         }
 
-        if(angel_health === 3){
+        if (angel_health === 3) {
             console.log('hit2', angel_health)
         }
 
-        if(angel_health === 2){
+        if (angel_health === 2) {
             console.log('hit3', angel_health)
         }
 
-        if(angel_health === 1){
+        if (angel_health === 1) {
             console.log('hit3', angel_health)
-            
+
         }
 
-        if(angel_health === 0){
-            
+        if (angel_health === 0) {
+
             obj2.destroy()
             this.ghostsound = this.sound.add('ghostsound')
             this.ghostsound.play();
             keys.get(obj2.x + 18, obj2.y + 18, 'key').setImmovable();
             //keyCount = keyCount + 1
         }
-        
+
     }
 
-    
+
     handlePlayerTreasureCollide(obj1, obj2) {
-        
+
 
         this.coinsound = this.sound.add('coinsound')
         this.coinsound.setRate(1.2)
         //rate = coinsound.rate
-        this.coinsound.play(); 
+        this.coinsound.play();
 
         if (obj2.anims.currentAnim.key !== 'chest-empty-open') {
             coin = coin + 10
@@ -933,132 +903,122 @@ class MyGame extends Phaser.Scene {
 
         if (keyCount === 0) {
             keyCount = keyCount + 1
-            
-            
+
+
             console.log('keyCOunt', keyCount);
             sceneEvents.emit('player-key-mint', keyCount)
             //obj2.destroy()
 
             //obj2.anims.play('key-idle')
         }
-        if(keyCount === 1){
+        if (keyCount === 1) {
             //keyCount = keyCount + 1
             obj2.destroy()
         }
     }
 
-    handleplayerchainlinkcollide(obj1, obj2){
-        
+    handleplayerchainlinkcollide(obj1, obj2) {
+
         if (chainlink_count === 0) {
             chainlink_count = chainlink_count + 1
-            
+
             //obj2.destroy()
             console.log('keyCOunt', chainlink_count);
             sceneEvents.emit('player-chainlink-mint', chainlink_count)
             //obj2.anims.play('key-idle')
         }
-        if(chainlink_count === 1){
+        if (chainlink_count === 1) {
             obj2.destroy()
         }
     }
 
     handlePlayerWizardCollide(obj1, obj2) {
-        
+
         console.log("chest")
         if (obj2.anims.currentAnim.key === 'wizard-idle') {
             console.log('ture');
             obj2.anims.play('wizard-idle')
             keys.get(obj2.x + 18, obj2.y + 18, 'key').setImmovable();
-            
+
             //this.physics.add.sprite(840,100, 'key')
         }
     }
 
     handlePlayerDoorCollide(obj1, obj2) {
         console.log('key', keyCount)
-        if(keyCount === 0){
+        if (keyCount === 0) {
             alert("FIND KEY!!")
             obj2.anims.play('door-closed')
-            
+
         }
-        if(keyCount ===1 ){
+        if (keyCount === 1) {
             this.dooropen = this.sound.add('dooropen')
             this.dooropen.play();
 
             obj2.anims.play('door-open')
             console.log('keycollide', keyCount)
-            
+
             keyCount--
-            
+
             console.log('keyminus', keyCount)
             sceneEvents.emit('player-key-mint', keyCount)
 
             obj2.body.enable = false
-        } 
+        }
     }
 
     handlePlayerDoorwoodCollide(obj1, obj2) {
         console.log('key', keyCount)
-        if(keyCount === 0){
+        if (keyCount === 0) {
             alert("FIND KEY!!")
             obj2.anims.play('doorwood-closed')
         }
-        if(keyCount === 1){
+        if (keyCount === 1) {
             this.dooropen = this.sound.add('dooropen')
             this.dooropen.play();
 
             obj2.anims.play('doorwood-full-open')
             console.log('keycollide', keyCount)
-            
+
             keyCount--
-            
+
             console.log('keyminus', keyCount)
             sceneEvents.emit('player-key-mint', keyCount)
 
             obj2.body.enable = false
-        } 
+        }
     }
 
     handleknifewallCollide(obj1, obj2) {
         obj1.destroy();
         wall_health--
 
-        if(wall_health === 4){       
+        if (wall_health === 4) {
             console.log('wall', wall_health)
         }
 
-        if(wall_health === 3){
+        if (wall_health === 3) {
             // wall_health--
             console.log('wallj', wall_health)
             obj2.anims.play('wall-crack')
         }
 
-        if(wall_health === 2){
+        if (wall_health === 2) {
             // wall_health--
             console.log('wallh', wall_health)
             obj2.anims.play('wall-crackkk')
         }
 
-        if(wall_health === 1){
+        if (wall_health === 1) {
             // wall_health--
             console.log('wallh', wall_health)
             obj2.anims.play('wall-end')
         }
 
-        if(wall_health === 0){
+        if (wall_health === 0) {
             wall_health = 3
             obj2.destroy()
         }
-        // if (obj2.anims.currentAnim.key === 'wall-idle') {
-        //     console.log('kke', obj2.anims.currentAnim.key);
-            
-        //     obj2.anims.play('wall-crack')
-            // if(obj2.anims.currentAnim.key === 'wall-idle')
-            // // if(obj2.anims.currentAnim.key === 'wall_anim_crack_f4.png'){
-            // //         obj2.anims.stop('wall-crack')
-            // //  }
-            
-        
     }
 
     handlePlayerLizardCollide(obj1, obj2) {
@@ -1077,9 +1037,6 @@ class MyGame extends Phaser.Scene {
         this.femalehurt.play();
 
         sceneEvents.emit('player-healt-changed', _health)
-
-        
-
     }
 
     handleDamage(dir) {
@@ -1302,7 +1259,7 @@ class MyGame extends Phaser.Scene {
         this.handleDamage(dir)
 
         hit = 1
-    
+
         healthState = damageHealthState
 
         this.femalehurt = this.sound.add('femalehurt')
@@ -1338,12 +1295,11 @@ class MyGame extends Phaser.Scene {
         faune.setTint(0xff0000)
     }
 
-    handleplayerflaskcollide(obj1, obj2){
+    handleplayerflaskcollide(obj1, obj2) {
         speed = 280
         obj2.destroy()
     }
 
-    
     preUpdate(t, dt) {
         switch (healthState) {
             case idleHealthState:
@@ -1365,16 +1321,13 @@ class MyGame extends Phaser.Scene {
     }
 
     update(t, dt) {
-
-        
-        
         if (_health <= 0) {
             faune.setVelocity(0, 0)
             //console.log('player dead');
         } else {
 
         }
-        
+
         if (hit > 0) {
             ++hit
             if (hit > 10) {

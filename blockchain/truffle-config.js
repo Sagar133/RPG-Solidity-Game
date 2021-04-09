@@ -5,6 +5,7 @@ const Web3 = require("web3");
 // require('babel-register');
 
 const mnemonic = process.env.MNEMONIC
+const PRIVATE_KEY = process.env.PRIVATE_KEY
 const Url = process.env.RPC_URL
 
 module.exports = {
@@ -21,12 +22,12 @@ module.exports = {
     },
     rinkeby: {
       provider: function () {
-        return new HDWalletProvider(mnemonic, Url)
+        return new HDWalletProvider(PRIVATE_KEY, Url)
       },
       network_id: "4",
       networkCheckTimeout: 1000000,
       timeoutBlocks: 200,
-      skipDryRun: false
+      skipDryRun: true
       // addressIndex: 2
     }
   },
