@@ -4,6 +4,7 @@ import history from '../history';
 import Angel from '../assets/Angel.png'
 import Castle from '../assets/Castle.png'
 
+
 export default function App() {
   return (
     <div className="main">
@@ -27,6 +28,13 @@ export default function App() {
         <h4>Vote for Story</h4>
         <img src={Castle} alt="Angel" width="200" height="200"/>
         </div>
+      </div>
+      <div className='screen' style={{alignItems: "center"}} onClick={()=> {
+        history.push('/App')
+        history.go(0)
+      }}>
+        <h4>go to app</h4>
+
       </div>
     </div>
   )

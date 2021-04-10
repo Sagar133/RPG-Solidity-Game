@@ -5,7 +5,14 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './App.css';
 import Web3 from 'web3';
+
 import TropyChar from '../abis/TrophyChar.json'
+// var fs = require('fs');
+// var jsonFile = "../abis/TrophyChar.json";
+// var parsed= JSON.parse(fs.readFileSync(jsonFile));
+// var abi = parsed.abi;
+
+// var YourContract= new web3.eth.Contract(abi, 0x12345678912345678912345678912345678912);
 
 class App extends Component {
 
@@ -19,7 +26,8 @@ class App extends Component {
       account: '',
       contract: null, 
       usersNftCount: 0,
-      trophies: []
+      trophies: [],
+      loading: true
     };
     this.loadWeb3();
     this.loadBlockchainData();
@@ -54,7 +62,7 @@ class App extends Component {
       const usersNftCount = await contract.methods.usersNftCount().call()
       this.setState({usersNftCount})
       for(var i = 1; i<= usersNftCount; i++) {
-        const trophy = await contract.methods.trophies(i-1).call()
+        const trophy = await contract.methods.trophies(i).call()
         this.setState({
           trophies: [...this.state.trophies, trophy]
         })
@@ -122,8 +130,8 @@ class App extends Component {
                   <div class="row text-center">
                     {this.state.trophies.map((trophy, key) => {
                       return (
-                      <div key={key} class="col-md-3 mb-3">
-                        <div></div>
+                      <div key={key} className="col-md-3 mb-3">
+                        <div className='dispToken'></div>
                         <div>{trophy}</div>
                       </div>
                       )
@@ -153,6 +161,7 @@ class App extends Component {
               </div> 
             </div>
           </div>
+          <div className="selection">
         </div>        
       // </div>
     );

@@ -150,7 +150,16 @@ body::-webkit-scrollbar {
     flex: 1 1 30%;
     margin: 10px;
     /* width: 33%; */
-    height: 250px;
+    /* height: 250px; */
     /* width: 100px; */
+
+}
+
+.dispToken {
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #000000;
 
 }
