@@ -5,7 +5,9 @@ import history from './history';
 import Selection from './components/Selection';
 import Upload from './components/Upload';
 import Login from './components/Login';
-import Booth from './components/Booth';
+import HeroBooth from './components/HeroBooth';
+import StoryBooth from './components/StoryBooth';
+
 
 
 export default function Routes () {
@@ -15,7 +17,8 @@ export default function Routes () {
                     <Route path="/" exact component={Selection} />
                     <Route path="/Upload" exact component={Upload} />
                     <Route path="/Login" exact component={Login} />
-                    <Route path="/Booth" exact component={Booth} />
+                    <Route path="/HeroBooth" exact component={HeroBooth} />
+                    <Route path="/StoryBooth" exact component={StoryBooth} />
                 </Switch>
             </BrowserRouter>
         )

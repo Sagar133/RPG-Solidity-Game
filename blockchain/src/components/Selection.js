@@ -13,7 +13,7 @@ export default function App() {
       <div className="selection">
         <div className="select-hero" onClick={() => 
         {
-          history.push('/Booth')
+          history.push('/HeroBooth')
           history.go(0);
         }}>
             <h4>Vote for Hero</h4>
@@ -21,7 +21,7 @@ export default function App() {
         </div>
         <div className="select-story" onClick={() => 
         {
-          history.push('/Booth')
+          history.push('/StoryBooth')
           history.go(0);
         }}>
         <h4>Vote for Story</h4>
