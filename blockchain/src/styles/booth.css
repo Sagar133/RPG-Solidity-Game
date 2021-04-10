@@ -1,22 +1,73 @@
 .header{
-    text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding-top: 20px;
     border-width: 1px;
-    height: 100px;
+    height: 150px;
     }
+
+.navbar{
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.navbox{
+    border-style: solid;
+    height: 30px;
+    width: 80px;
+    border-width: 1px;
+    border-color: lightblue;
+    font-size: 20px;
+}
+
+.navbox:hover{
+    background-color: #6ebae9;
+    color: white;
+    border-color: black;
+}
+
+
     
-    .selection{
+.selection{
     border-width: 1px;
     display: flex;
-    height: 500px;
+    height: max-content;
     justify-content:space-evenly;
     align-items:center;
     }
 
-    h4 { 
-        color: #087ec7;
-        font-family: 'Georgia', serif; font-style: italic; 
-        font-size: 18px; 
-        padding-bottom: 10px; 
+
+h4 { 
+    color: #087ec7;
+    font-family: 'Georgia', serif; font-style: italic; 
+    font-size: 18px; 
+    padding-bottom: 10px; 
     }
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+      
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 40px;
+    padding: 20px;
+    font-size: 30px;
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px;
+    }
+
+.imageBox{
+    padding-left: 60px;
+}
+
+
+p{
+    padding-top: 9px;
+    font-family: 'Georgia', serif; font-style: italic; 
+    font-size: 14px; 
+}

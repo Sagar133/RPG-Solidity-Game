@@ -5,8 +5,12 @@ import history from './history';
 import Selection from './components/Selection';
 import Upload from './components/Upload';
 import Login from './components/Login';
-import Booth from './components/Booth';
-import App from './components/App'
+import HeroBooth from './components/HeroBooth';
+import StoryBooth from './components/StoryBooth';
+import App from './components/App';
+
+
+
 
 export default function Routes () {
         return (
@@ -15,8 +19,10 @@ export default function Routes () {
                     <Route path="/" exact component={Selection} />
                     <Route path="/Upload" exact component={Upload} />
                     <Route path="/Login" exact component={Login} />
-                    <Route path="/Booth" exact component={Booth} />
-                    <Route path="/App" eaxt component={App} />
+                    <Route path="/HeroBooth" exact component={HeroBooth} />
+                    <Route path="/StoryBooth" exact component={StoryBooth} />
+                    <Route path="/App" exact component={App} />
+
                 </Switch>
             </BrowserRouter>
         )

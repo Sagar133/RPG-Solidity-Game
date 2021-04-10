@@ -107,14 +107,10 @@ class App extends Component {
             {/* <div className="avatar-section"> */}
             <div className="row">
               <div className="col-md-5 col-xs-10">{avatar(isLoggedIn)}</div>
-              <div className="col-md-3"></div>
-              <div className="col-md-4 col-xs-10">{mint(isMinting)}</div>
-            </div>
-            <div className='row'>
-              <div className='col-md-10 col-xs-10'>
-                <button
+              <div className="col-md-2">
+              <button
                   type="submit"
-                  className="btn btn-link btn-block btn-sm"
+                  className="btn btn-link btn-block btn-sm mint-btn"
                   onClick={(event) => {
                     event.preventDefault()
                     console.log('triggered');
@@ -131,46 +127,31 @@ class App extends Component {
                   }}>
                   Test Mint Random NFT...
                 </button>
+
               </div>
+              <div className="col-md-5 col-xs-10">{mint(isMinting)}</div>
             </div>
 
-              {/* <Container>
-                <Row>
-                  <Col sm={6}>
-                    <div>
-                      {avatar(isLoggedIn)}
-                    </div>
-                  </Col>
-                  <Col sm={2}></Col>
-                  <Col sm={4}>
-                    <div>
-                      {mint(isMinting)}
-                    </div>
-                  </Col>
-
-                </Row>
-              </Container> */}
-            {/* </div> */}
+            <div className='row title'>
+              <div className='col-md-4'></div>
+                <span className="text cab col-md-4 col-sm">Your Trophy Cabinet</span>  
+              <div className='col-md-4'></div>
+            </div>
 
             <div className='row trophy-cabinet'>
-              <div className="row title">
-                <span className="col-md-4 text">Your Trophy Cabinet</span>
-              </div>
-              <div className="scroll row">
-                <div class="container vertical-scrollable">
-                  <div class="col-sm text-center">
+                <div class="flexcontainer">
+                  {/* <div class="col-sm text-center"> */}
                     {this.state.trophies.map((trophy, key) => {
                       console.log(trophy, key);
-                      return (
-                        // <div key={key} className="col-md-3 mb-3">
-                        //   <div className='dispToken'></div>
-                        //   <div>{trophy}</div>
-                        // </div>
-                      )
+                      // return (
+                      //   <div key={key} className="d-flex justify-content-around">
+                      //     <div className='dispToken'></div>
+                      //     <div>{trophy}</div>
+                      //   </div>
+                      // )
                     })}
-                  </div>
                 </div>
-              </div>
+              {/* </div> */}
             </div>
             
           </div>
