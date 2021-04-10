@@ -120,6 +120,16 @@ class App extends Component {
               <div className="scroll">           
                 <div class="container vertical-scrollable">
                   <div class="row text-center">
+                    {this.state.trophies.map((trophy, key) => {
+                      return (
+                      <div key={key} class="col-md-3 mb-3">
+                        <div></div>
+                        <div>{trophy}</div>
+                      </div>
+                      )
+                    })}
+                  </div>  
+                      {/* <div>{box(isRewarded)}</div>
                       <div>{box(isRewarded)}</div>
                       <div>{box(isRewarded)}</div>
                       <div>{box(isRewarded)}</div>
@@ -136,8 +146,7 @@ class App extends Component {
                       <div>{box(isRewarded)}</div>
                       <div>{box(isRewarded)}</div>
                       <div>{box(isRewarded)}</div>
-                      <div>{box(isRewarded)}</div>
-                      <div>{box(isRewarded)}</div>
+                      <div>{box(isRewarded)}</div> */}
 
                   </div>
                 </div>
@@ -145,24 +154,24 @@ class App extends Component {
             </div>
           </div>
         </div>        
-      </div>
+      // </div>
     );
   }
 }
 
-function box(props) {
-  const isRewarded = props.isRewarded;
-  if (isRewarded) {
-    return (
-      <div className='drawer col-xs-4'></div>
-    )
+// function box(props) {
+//   const isRewarded = props.isRewarded;
+//   if (isRewarded) {
+//     return (
+//       <div className='drawer col-xs-4'></div>
+//     )
 
-  }else {
-  return (
-    <div className='drawer col-xs-4'>NFT</div>
-  );
-  }
-}
+//   }else {
+//   return (
+//     <div className='drawer col-xs-4'>NFT</div>
+//   );
+//   }
+// }
 
 function avatar(props) {
   const isLoggedIn= props.isLoggedIn;
