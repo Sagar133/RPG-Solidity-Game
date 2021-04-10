@@ -36,8 +36,8 @@ body::-webkit-scrollbar {
 }
 .dungeon {
     background-color: #e2e1e1;
-    width: 80vw;
-    height: 90vh;
+    /* width: 80vw; */
+    /* height: 90vh; */
     position: relative;
     border-left: 8px solid rgb(245, 245, 245);
     border-right: 8px solid rgb(126, 125, 125);
@@ -149,9 +149,9 @@ body::-webkit-scrollbar {
     /* flex-grow: 1; */
     flex: 1 1 30%;
     margin: 10px;
-    /* width: 33%; */
-    /* height: 250px; */
-    /* width: 100px; */
+    width: 33%;
+    height: 250px;
+    width: 100px;
 
 }
 
@@ -161,5 +161,11 @@ body::-webkit-scrollbar {
     border-radius: 50%;
     display: inline-block;
     background-color: #000000;
+
+}
+
+.btn{
+    font-family: "Goblin";
+    background-color: white;
 
 }
