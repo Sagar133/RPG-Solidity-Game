@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './App.css';
 import Web3 from 'web3';
-import GladiatorCharacter from '../build/contracts/GladiatorCharacter.json'
+import TropyChar from '../abis/TrophyChar.json'
 
 class App extends Component {
 
@@ -18,7 +18,7 @@ class App extends Component {
       // items: [], 
       account: '',
       contract: null, 
-      totalSupply: 0,
+      usersNftCount: 0,
       trophies: []
     };
     this.loadWeb3();
@@ -44,16 +44,16 @@ class App extends Component {
     this.setState({account: accounts[0]})
 
     const networkId = await web3.eth.net.getId()
-    const networkData = GladiatorCharacter.networks[networkId]
+    const networkData = TrophyChar.networks[networkId]
     if(networkData){
-      const abi = []
+      const abi = TrophyChar.abi; 
       const address = networkData.address
       const contract = new web3.eth.Contract(abi, address)
       // console.log(contract)
       this.setState({ contract })
-      const totalSupply = await contract.methods.totalSupply().call()
-      this.setState({totalSupply})
-      for(var i = 1; i<= totalSupply; i++) {
+      const usersNftCount = await contract.methods.usersNftCount().call()
+      this.setState({usersNftCount})
+      for(var i = 1; i<= usersNftCount; i++) {
         const trophy = await contract.methods.trophies(i-1).call()
         this.setState({
           trophies: [...this.state.trophies, trophy]
