@@ -78,6 +78,41 @@ body::-webkit-scrollbar {
     width: 80%;;
     background-color: rgb(255, 255, 255);
 }
+
+
+.dispToken {
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #000000;
+
+}
+
+.btn{
+    font-family: "Goblin";
+    background-color: white;
+
+}
+
+.text-header {
+    font-family: "Goblin";
+}
+
+.text-header1 {
+    font-family: "Goblin";
+    font-size: 10px;
+}
+
+
+.select-story {
+    padding: 15px;
+}
+
+.name-artist {
+    color: blue;
+}
+
 /* .drawer {
     border-left: 4px solid rgb(245, 245, 245);
     border-right: 4px solid rgb(126, 125, 125);
@@ -116,36 +151,3 @@ body::-webkit-scrollbar {
     width: 100px;
 
 } */ */
-
-.dispToken {
-    height: 220px;
-    width: 220px;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: #000000;
-
-}
-
-.btn{
-    font-family: "Goblin";
-    background-color: white;
-
-}
-
-.text-header {
-    font-family: "Goblin";
-}
-
-.text-header1 {
-    font-family: "Goblin";
-    font-size: 10px;
-}
-
-
-.select-story {
-    padding: 15px;
-}
-
-.name-artist {
-    color: blue;
-}
