@@ -97,7 +97,7 @@ class App extends Component {
           </a>
           <ul className='navbar-nav px-3'>
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className='text-white'><span id='account'>{this.state.account}</span></small>
+              <small className='text-white'><span id='account' className='text-header1'>{this.state.account}</span></small>
             </li>
           </ul>
         </nav>

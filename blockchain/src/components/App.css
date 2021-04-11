@@ -55,7 +55,15 @@ body::-webkit-scrollbar {
     /* margin-top: 50% !important; */
     vertical-align: center !important;
     align-content: center !important;
-    border-radius: 25%;
+    /* border-radius: 25%; */
+    font-family: "Goblin";
+    display: inline-block;
+    background-color: #000000;
+
+}
+
+.mint-btn:hover{
+    background-color: white;
 }
 
 .text {
@@ -80,20 +88,13 @@ body::-webkit-scrollbar {
 }
 
 
-.dispToken {
-    height: 220px;
-    width: 220px;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: #000000;
 
-}
-
+/* 
 .btn{
     font-family: "Goblin";
     background-color: white;
 
-}
+} */
 
 .text-header {
     font-family: "Goblin";
@@ -112,6 +113,8 @@ body::-webkit-scrollbar {
 .name-artist {
     color: blue;
 }
+
+
 
 /* .drawer {
     border-left: 4px solid rgb(245, 245, 245);
@@ -150,4 +153,4 @@ body::-webkit-scrollbar {
     height: 250px;
     width: 100px;
 
-} */ */
+/* } */ 
