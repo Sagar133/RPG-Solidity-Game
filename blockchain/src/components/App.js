@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 // import logo from '../logo.png';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+
 import './App.css';
 import Web3 from 'web3';
+import { Spinner } from 'reactstrap';
+import { Image } from 'react-bootstrap'
+import ChainlinkLogo from '../assets/chainlink.png' 
 
 import TropyChar from '../abis/TrophyChar.json'
 import DungeonToken from '../abis/DungeonToken.json'
@@ -105,8 +106,14 @@ class App extends Component {
           <div className='row'>
             <main role='main' className='col-lg-12 d-flex text-center'>
             <div className="content mr-auto ml-auto">
-              <h5 className="text">Your Trophy Cabinet</h5>  
+              <h5 className="text"><span>  &#x1F3C6;</span>Your Trophy Cabinet <span>  &#127942;</span></h5> 
+              <h6 className="text-header1 white">Powered by <img src={ChainlinkLogo} className='chainlink' /> <span className="hovero">Chainlink VRF</span>  </h6>
             {/* <h5 className="text col-md-6 col-sm">Your Trophy Cabinet</h5> </div> */}
+              {
+              // this.state.loading ? (
+                // <Spinner className='spinner' color="info" />
+                // <Spinner color="info" />
+              // ):
               <button
                   type="submit"
                   className="btn btn-link btn-block btn-sm mint-btn dispToken"
@@ -133,6 +140,9 @@ class App extends Component {
                   }}>
                   Test Mint Random NFT...
                 </button>
+              
+              }
+              
               </div>                 
             </main>
           </div>
@@ -148,8 +158,22 @@ class App extends Component {
                         let tokenId = trophy.tokenId.toString()
                         let rarity = trophy.rarity.toString()
                         let worth = trophy.worth.toString()
-      
+
+                        const nftMint = ["https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png","https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png","https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png","https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png","https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png"]
+                        const random = Math.floor(Math.random() * nftMint.length);
+                        console.log(random, nftMint[random]);
                         console.log(levelPass, name, tokenId, rarity, worth);
+                        return(
+                          <div key={key} className='gift'>
+                            <div className="giftBox">
+                              <Image src={nftMint[random]} roundedCircle style={{height: 100, width: 100, alignSelf:'center', justifyContent:'center'}}/>
+                            </div>
+                            <span>Level: <span className="values">{levelPass}</span></span><br />
+                            <span>tokenID: <span className="values">{tokenId}</span></span><br />
+                            <span>Rarity: <span className="values">{rarity}</span></span><br />
+                            <span>Worth: <span className="values">{worth}</span></span><br />
+                          </div>
+                        )
                       })}   
             
             
