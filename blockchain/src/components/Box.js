@@ -13,7 +13,7 @@ export default function Box(props) {
               <p className="text-header1"> Submitted by: <span className="name-artist">{props.name}</span> </p>
                 <BsHeart />
                 <div className="d-flex flex-row-reverse">
-                <Button variant="primary">Vote <FiThumbsUp /></Button>
+                <Button variant="primary"><span className="outline">Vote</span> <FiThumbsUp /></Button>
                 </div>
             </div>
           </div>

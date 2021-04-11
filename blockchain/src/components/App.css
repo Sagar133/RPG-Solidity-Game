@@ -55,7 +55,15 @@ body::-webkit-scrollbar {
     /* margin-top: 50% !important; */
     vertical-align: center !important;
     align-content: center !important;
-    border-radius: 25%;
+    /* border-radius: 25%; */
+    font-family: "Goblin";
+    display: inline-block;
+    background-color: #000000;
+
+}
+
+.mint-btn:hover{
+    background-color: white;
 }
 
 .text {
@@ -78,6 +86,67 @@ body::-webkit-scrollbar {
     width: 80%;;
     background-color: rgb(255, 255, 255);
 }
+
+
+
+/* 
+.btn{
+    font-family: "Goblin";
+    background-color: white;
+
+} */
+
+.text-header {
+    font-family: "Goblin";
+}
+
+.text-header1 {
+    font-family: "Goblin";
+    font-size: 10px;
+}
+
+
+.select-story {
+    padding: 15px;
+}
+
+.name-artist {
+    color: blue;
+}
+
+.gift {
+    border-left: 4px solid rgb(151, 150, 150);
+    border-right: 4px solid rgb(126, 125, 125);
+    border-top: 4px solid rgb(61, 61, 61);
+    border-bottom: 4px solid rgba(180, 180, 180, 0.432);
+    padding: 10px;
+    margin: 5px;
+    height: fit-content;
+    font-family: "Goblin";
+    font-size: 8px;
+    color: white;
+    background: rgb(0, 0, 0);
+    
+}
+
+.values {
+    color: gold;
+}
+
+.chainlink {
+    height: 20px;
+    width: 20px;
+}
+
+.white {
+    color: white;
+}
+
+.hovero:hover {
+    color: blue;
+
+}
+
 /* .drawer {
     border-left: 4px solid rgb(245, 245, 245);
     border-right: 4px solid rgb(126, 125, 125);
@@ -115,37 +184,4 @@ body::-webkit-scrollbar {
     height: 250px;
     width: 100px;
 
-} */ */
-
-.dispToken {
-    height: 220px;
-    width: 220px;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: #000000;
-
-}
-
-.btn{
-    font-family: "Goblin";
-    background-color: white;
-
-}
-
-.text-header {
-    font-family: "Goblin";
-}
-
-.text-header1 {
-    font-family: "Goblin";
-    font-size: 10px;
-}
-
-
-.select-story {
-    padding: 15px;
-}
-
-.name-artist {
-    color: blue;
-}
+/* } */ 
