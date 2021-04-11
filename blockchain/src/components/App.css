@@ -131,3 +131,21 @@ body::-webkit-scrollbar {
     background-color: white;
 
 }
+
+.text-header {
+    font-family: "Goblin";
+}
+
+.text-header1 {
+    font-family: "Goblin";
+    font-size: 10px;
+}
+
+
+.select-story {
+    padding: 15px;
+}
+
+.name-artist {
+    color: blue;
+}
