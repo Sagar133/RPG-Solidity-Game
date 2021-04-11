@@ -107,7 +107,7 @@ class App extends Component {
             <main role='main' className='col-lg-12 d-flex text-center'>
               <div className="content mr-auto ml-auto">
                 <h5 className="text"><span>  &#x1F3C6;</span>Your Trophy Cabinet <span>  &#127942;</span></h5>
-                <h6 className="text-header1 white">Powered by <img src={ChainlinkLogo} className='chainlink' /> <span className="hovero">Chainlink VRF</span>  </h6>
+                <h6 className="text-header1 white">Powered by <img src={ChainlinkLogo} className='chainlink' /> <a className="hovero" href="https://docs.chain.link/docs/chainlink-vrf"><span className="hovero">Chainlink VRF</span></a>  </h6>
                 {/* <h5 className="text col-md-6 col-sm">Your Trophy Cabinet</h5> </div> */}
                 {
                   // this.state.loading ? (

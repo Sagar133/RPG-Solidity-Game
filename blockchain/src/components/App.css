@@ -142,9 +142,11 @@ body::-webkit-scrollbar {
     color: white;
 }
 
+.hovero {
+    text-decoration: none;
+}
 .hovero:hover {
-    color: blue;
-
+    color: white;
 }
 
 /* .drawer {
