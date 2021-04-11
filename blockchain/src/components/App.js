@@ -7,12 +7,7 @@ import './App.css';
 import Web3 from 'web3';
 
 import TropyChar from '../abis/TrophyChar.json'
-// var fs = require('fs');
-// var jsonFile = "../abis/TrophyChar.json";
-// var parsed= JSON.parse(fs.readFileSync(jsonFile));
-// var abi = parsed.abi;
-
-// var YourContract= new web3.eth.Contract(abi, 0x12345678912345678912345678912345678912);
+import DungeonToken from '../abis/DungeonToken.json'
 
 class App extends Component {
 
@@ -57,10 +52,14 @@ class App extends Component {
       const abi = TropyChar.abi;
       const address = networkData.address
       const contract = new web3.eth.Contract(abi, address)
+      const contract2 = new web3.eth.Contract(DungeonToken.abi, DungeonToken.networks[networkId].address)
       //console.log(this.state.account)
       this.setState({ contract })
+      this.setState({ contract2 })
+
 
       const usersNftCount = await contract.methods.usersNftCount(this.state.account).call()
+
       this.setState({ usersNftCount: Number(usersNftCount.toString()) })
 
       console.log(usersNftCount.toString());
@@ -124,6 +123,13 @@ class App extends Component {
                       //console.log('true');
                       this.setState({ loading: false })
                     })
+
+                    // this.state.contract2.methods.reward(
+                    //   this.state.account
+                    // ).send({ from: this.state.account }).on('transactionHash', (hash) => {
+                    //   //console.log('true');
+                    //   this.setState({ loading: false })
+                    // })
                   }}>
                   Test Mint Random NFT...
                 </button>
