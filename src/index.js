@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-//import logoImg from './assets/logo.png';
 import logoImg2 from './assets/dungenTileset.png';
 import dungenMap from './assets/dungen-01.json';
 import tilesetterain from './assets/tropical.png'
@@ -125,6 +124,11 @@ import Tradecomp from './treasure/tradecomp'
 import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
 
+import Web3 from 'web3'
+import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
+import TropyChar from '../blockchain/src/abis/TrophyChar.json'
+
+
 var cursors
 var faune, lizard
 var hit = 0
@@ -152,6 +156,8 @@ let speed = 150
 class MyGame extends Phaser.Scene {
     constructor() {
         super();
+        loadWeb3()
+        //loadBlockchainData()
     }
 
     preload() {
@@ -238,7 +244,6 @@ class MyGame extends Phaser.Scene {
         createtorchburnAnims(this.anims)
         createWalltorchAnims(this.anims)
 
-
         const map = this.make.tilemap({ key: 'dungeon' })
         const tileset = map.addTilesetImage('dungenTileset', 'tiles')
         const tilesetterrain = map.addTilesetImage('tropical', 'tilesterrain')
@@ -260,8 +265,8 @@ class MyGame extends Phaser.Scene {
 
         //tradecomp = this.physics.add.image(160,150,'tradecomp')
 
-        this.dungeonsound = this.sound.add('dungeonsound')
-        this.dungeonsound.play();
+        // this.dungeonsound = this.sound.add('dungeonsound')
+        // this.dungeonsound.play();
 
         const chainlinks = this.physics.add.group({
             classType: Chainlink,
@@ -273,8 +278,6 @@ class MyGame extends Phaser.Scene {
             }
         })
         chainlinks.get(1209, 622, 'chainlink').setImmovable();
-
-
 
         const chests = this.physics.add.group({
             classType: Treasure,
@@ -460,7 +463,6 @@ class MyGame extends Phaser.Scene {
         })
         //wallss.get(817, 153, 'wall').setImmovable();
 
-
         const flamethrows = this.physics.add.group({
             classType: flamethrowz,
             createCallback: (go) => {
@@ -471,8 +473,6 @@ class MyGame extends Phaser.Scene {
             }
         })
         flamethrows.get(100, 30, 'flamethrow').setImmovable();
-
-
 
         //lizard = this.physics.add.sprite(256, 256, 'lizard', 'lizard_m_idle_anim_f0.png')
         knives = this.physics.add.group({
@@ -540,10 +540,6 @@ class MyGame extends Phaser.Scene {
             }
         })
         angell.get(1115, 1105, 'angel')
-        // angell.get(1130, 270, 'angel')
-        // angell.get(600, 470, 'angel')
-
-
 
         const ghostt = this.physics.add.group({
             classType: Ghost,
@@ -610,11 +606,6 @@ class MyGame extends Phaser.Scene {
         Knight.get(130, 490, 'Knight')
         Knight.get(1100, 270, 'Knight')
         Knight.get(1515, 900, 'Knight')
-        // Knight.get(135, 500, 'Knight')
-        // Knight.get(140, 510, 'Knight')
-        // Knight.get(190, 490, 'Knight')
-        // Knight.get(200, 490, 'Knight')
-
 
         this.physics.world.setBounds(0, 0, 2000, 2000)
         this.cameras.main.setBounds(0, 0, 2000, 2000)
@@ -760,8 +751,6 @@ class MyGame extends Phaser.Scene {
     handleKnifeLizardCollision(obj1, obj2) {
         obj2.destroy()
         obj1.destroy()
-
-
     }
 
     handleknifeRockcollide(obj1, obj2) {
@@ -770,8 +759,6 @@ class MyGame extends Phaser.Scene {
 
         this.rockdie = this.sound.add('rockdie')
         this.rockdie.play();
-
-
     }
 
     handleKnifeDemonCollision(obj1, obj2) {
@@ -884,8 +871,6 @@ class MyGame extends Phaser.Scene {
 
 
     handlePlayerTreasureCollide(obj1, obj2) {
-
-
         this.coinsound = this.sound.add('coinsound')
         this.coinsound.setRate(1.2)
         //rate = coinsound.rate
@@ -893,6 +878,7 @@ class MyGame extends Phaser.Scene {
 
         if (obj2.anims.currentAnim.key !== 'chest-empty-open') {
             coin = coin + 10
+            mintReward()
             console.log('coinCOunt', coin);
             sceneEvents.emit('player-coin-mint', coin)
             obj2.anims.play('chest-empty-open')
@@ -1382,6 +1368,49 @@ class MyGame extends Phaser.Scene {
 
 const sendAlert = () => {
     alert('hello World')
+}
+
+const loadWeb3 = () => {
+    //alert('Connecting Wallet');
+
+    if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum)
+        window.ethereum.enable()
+    }
+    else if (window.web3) {
+        window.web3 = new Web3(window.web3.currentProvider)
+    }
+    else {
+        window.alert("Non ethereum browser detected. You should consider trying Metamask")
+    }
+}
+
+let contract
+const loadBlockchainData = () => {
+    const web3 = window.web3
+    const networkId = web3.eth.net.getId()
+    const networkData = DungeonToken.networks[4]
+
+    if (networkData) {
+        const abi = []
+        const address = networkData.address
+        contract = new web3.eth.Contract(DungeonToken.abi, address)
+
+    } else {
+        window.alert('Smart contract not deployed to the detected network')
+    }
+}
+
+const mintReward = () => {
+    loadBlockchainData()
+
+    const web3 = window.web3
+
+    const accounts = web3.eth.getAccounts()
+    accounts.then(data => {
+        console.log('data', data);
+        contract.methods.reward(data[0]).send({ from: data[0] })
+    })
 }
 
 const config = {
