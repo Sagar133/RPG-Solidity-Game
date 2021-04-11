@@ -88,12 +88,12 @@ class App extends Component {
       <div className="screen">
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
           <a
-            className="navbar-brand col-sm-3 col-md-2 mr-0"
+            className="navbar-brand col-sm-3 col-md-2 mr-0 text-header"
             href="#"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Dungeons Game
+            The Dungeon Crawler
           </a>
           <ul className='navbar-nav px-3'>
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
@@ -101,15 +101,15 @@ class App extends Component {
             </li>
           </ul>
         </nav>
-        <div className='nft-sec row'>
-          <div className="dungeon col-md-10 col-sm-12">
-            {/* <div className="avatar-section"> */}
-            <div className="row">
-              <div className="col-md-5 col-xs-10">{avatar(isLoggedIn)}</div>
-              <div className="col-md-2">
+        <div className='nft-sec container-fluid mt-5'>
+          <div className='row'>
+            <main role='main' className='col-lg-12 d-flex text-center'>
+              <div className="content mr-auto ml-auto">
+                <h5 className="text">Your Trophy Cabinet</h5>
+                {/* <h5 className="text col-md-6 col-sm">Your Trophy Cabinet</h5> </div> */}
                 <button
                   type="submit"
-                  className="btn btn-link btn-block btn-sm mint-btn"
+                  className="btn btn-link btn-block btn-sm mint-btn dispToken"
                   onClick={(event) => {
                     event.preventDefault()
                     console.log('triggered');
@@ -133,71 +133,31 @@ class App extends Component {
                   }}>
                   Test Mint Random NFT...
                 </button>
-
               </div>
-              <div className="col-md-5 col-xs-10">{mint(isMinting)}</div>
-            </div>
+            </main>
+          </div>
+          <hr /><hr />
 
-            <div className='row title'>
-              <div className='col-md-4'></div>
-              <span className="text cab col-md-4 col-sm">Your Trophy Cabinet</span>
-              <div className='col-md-4'></div>
-            </div>
+          <div className="dungeon trophy-cabinet row text-center">
 
-            <div className='row trophy-cabinet'>
-              <div class="flexcontainer">
-                {/* <div class="col-sm text-center"> */}
-                {this.state.trophies.map((trophy, key) => {
-                  //console.log(trophy, key);
-                  let levelPass = trophy.levelPass.toString()
-                  let name = trophy.name.toString()
-                  let tokenId = trophy.tokenId.toString()
-                  let rarity = trophy.rarity.toString()
-                  let worth = trophy.worth.toString()
+            {/* <div className='row trophy-cabine'> */}
+            {this.state.trophies.map((trophy, key) => {
+              //console.log(trophy, key);
+              let levelPass = trophy.levelPass.toString()
+              let name = trophy.name.toString()
+              let tokenId = trophy.tokenId.toString()
+              let rarity = trophy.rarity.toString()
+              let worth = trophy.worth.toString()
 
-                  console.log(levelPass, name, tokenId, rarity, worth);
-                })}
-              </div>
-              {/* </div> */}
-            </div>
+              console.log(levelPass, name, tokenId, rarity, worth);
+            })}
 
+
+            {/* </div> */}
           </div>
         </div>
-        {/* <div className="selection">
-        </div> */}
-
       </div>
     );
   }
 }
-
-function avatar(props) {
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
-    return (
-      <div className='avatar'></div>
-    )
-
-  } else {
-    return (
-      <div className='avatar'>AVATAR</div>
-    );
-  }
-}
-
-function mint(props) {
-  const isMinting = props.isMinting;
-  if (isMinting) {
-    return (
-      <div className='minted'></div>
-    )
-
-  } else {
-    return (
-      <div className='minted'>YOUR NEW NFT</div>
-    );
-  }
-}
-
-export default App;
-
+export default App

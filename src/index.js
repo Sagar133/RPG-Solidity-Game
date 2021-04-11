@@ -158,6 +158,7 @@ class MyGame extends Phaser.Scene {
         super();
         loadWeb3()
         //loadBlockchainData()
+        usersNFTCount()
     }
 
     preload() {
@@ -778,8 +779,6 @@ class MyGame extends Phaser.Scene {
     handleKnifeKnightCollision(obj1, obj2) {
         obj1.destroy()
         obj2.destroy()
-
-
     }
 
     handlePlayerLizardCollide(obj1, obj2) {
@@ -907,7 +906,7 @@ class MyGame extends Phaser.Scene {
 
         if (chainlink_count === 0) {
             chainlink_count = chainlink_count + 1
-
+            rewardNFT()
             //obj2.destroy()
             console.log('keyCOunt', chainlink_count);
             sceneEvents.emit('player-chainlink-mint', chainlink_count)
@@ -1410,6 +1409,45 @@ const mintReward = () => {
     accounts.then(data => {
         console.log('data', data);
         contract.methods.reward(data[0]).send({ from: data[0] })
+    })
+}
+
+const usersNFTCount = () => {
+    const networkData = TropyChar.networks[4]
+    const address = networkData.address
+    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+
+    const accounts = web3.eth.getAccounts()
+    accounts.then(data => {
+        console.log('data', data);
+        let nftCount = NFTContract.methods.usersNftCount(data[0]).call()
+        nftCount.then(nftData => {
+            console.log(nftData);
+        })
+        // console.log('nftCount', nftCount.toString());
+        NFTContract.methods.requestNewRandomTrophy(
+            1,
+            'sagar',
+            1,
+            data[0]
+        ).send({ from: data[0] })
+    })
+}
+
+const rewardNFT = () => {
+    const networkData = TropyChar.networks[4]
+    const address = networkData.address
+    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+
+    const accounts = web3.eth.getAccounts()
+    accounts.then(data => {
+        console.log('data', data);
+        NFTContract.methods.requestNewRandomTrophy(
+            1,
+            'sagar',
+            1,
+            data[0]
+        ).send({ from: data[0] })
     })
 }
 
