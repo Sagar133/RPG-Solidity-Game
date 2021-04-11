@@ -6,33 +6,33 @@ export default function App() {
   return (
     <div className="main">
       <div className="header">
-          <h1>Upload your Creation here!!</h1>
+          <h1 className="text-header">Upload your Creation here!!</h1>
       </div>
       <form>
         <div className="container">
 
                     <div className="form-group">
-                        <label>Name of the Character</label>
+                        <label className='text-header1'>Name of the Character</label>
                         <input type="text" className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <label>Description</label>
+                        <label className='text-header1'>Description</label>
                         <input type="text" className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <label>Wallet Address</label>
+                        <label className='text-header1'>Wallet Address</label>
                         <input type="text" className="form-control"/>
                     </div>
 
                     <div className="form-group">
-                        <label>Email</label>
+                        <label className='text-header1'>Email</label>
                         <input type="email" className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <label>Upload</label>
+                        <label className='text-header1'>Upload</label>
                         <br />
                         <input type="file" id="myFile" name="filename" />
                     </div>

@@ -16,8 +16,9 @@
     height: 30px;
     width: 80px;
     border-width: 1px;
-    border-color: lightblue;
+    border-color: black;
     font-size: 20px;
+    color: black;
 }
 
 .navbox:hover{
