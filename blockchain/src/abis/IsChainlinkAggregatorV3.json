@@ -113,16 +113,16 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\"}],\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/ya98/playground/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol\":\"IsChainlinkAggregatorV3\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ya98/playground/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol\":{\"keccak256\":\"0xd6cf49b6acf4c752b164682b5534de8560455bdf05813f0d332252fc7e6da0c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://11878878668eac4ab222830e5d8a55e6a7d05675caac6b1f915fbdccb750d9d2\",\"dweb:/ipfs/Qmdqh6RexsbhWATpUUKw4RLb6v6NNoYtWAw1d7XYW3Jxx8\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\"}],\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\"},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/newsgate/Work/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol\":\"IsChainlinkAggregatorV3\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/newsgate/Work/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol\":{\"keccak256\":\"0xd6cf49b6acf4c752b164682b5534de8560455bdf05813f0d332252fc7e6da0c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://11878878668eac4ab222830e5d8a55e6a7d05675caac6b1f915fbdccb750d9d2\",\"dweb:/ipfs/Qmdqh6RexsbhWATpUUKw4RLb6v6NNoYtWAw1d7XYW3Jxx8\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >=0.6.0;\n\ninterface IsChainlinkAggregatorV3 {\n    function decimals() external view returns (uint8);\n\n    function description() external view returns (string memory);\n\n    function version() external view returns (uint256);\n\n    function getRoundData(uint80 _roundId)\n        external\n        view\n        returns (\n            uint80 roundId,\n            int256 answer,\n            uint256 startedAt,\n            uint256 updatedAt,\n            uint80 answeredInRound\n        );\n\n    function latestRoundData()\n        external\n        view\n        returns (\n            uint80 roundId,\n            int256 answer,\n            uint256 startedAt,\n            uint256 updatedAt,\n            uint80 answeredInRound\n        );\n}\n",
-  "sourcePath": "/Users/ya98/playground/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol",
+  "sourcePath": "/Users/newsgate/Work/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol",
   "ast": {
-    "absolutePath": "/Users/ya98/playground/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol",
+    "absolutePath": "/Users/newsgate/Work/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol",
     "exportedSymbols": {
       "IsChainlinkAggregatorV3": [
         180
@@ -709,7 +709,7 @@
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/Users/ya98/playground/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol",
+      "absolutePath": "/Users/newsgate/Work/RPG-Solidity-Game/blockchain/src/contracts/IChainlinkAggregatorV3.sol",
       "exportedSymbols": {
         "IsChainlinkAggregatorV3": [
           180
@@ -1363,8 +1363,8 @@
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.3.4",
-  "updatedAt": "2021-04-11T12:55:47.327Z",
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-04-11T14:46:22.825Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
