@@ -159,9 +159,9 @@ Following are the instructions for running the game locally:
 
 This project can be scaled in future and we can create our own marketplace for creating own assets and minting NFTs and using the rewards. Blockchain empowers the gamers to own the cryptocurrencies and even convert them into fiat currency. A crucial issue blockchain hopes to tackle is the common problem of delay in payments to the e-sports players. Blockchain technology makes use of smart contracts on which people can build decentralized applications.
 
-| selection | Hero | Story | Creator Space | 
-| --- | --- | --- | --- |
-| ![1](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/selection.png) | ![2](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/heroes.png) | ![3](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/story.png)|  | ![4](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/form.png) |
+| selection | Hero | Story | Creator Space 
+| --- | --- | --- | --- 
+| ![1](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/selection.png) | ![2](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/heroes.png) | ![3](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/story.png)|  | ![4](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/form.png) 
 
 
 
