@@ -159,9 +159,9 @@ Following are the instructions for running the game locally:
 
 This project can be scaled in future and we can create our own marketplace for creating own assets and minting NFTs and using the rewards. Blockchain empowers the gamers to own the cryptocurrencies and even convert them into fiat currency. A crucial issue blockchain hopes to tackle is the common problem of delay in payments to the e-sports players. Blockchain technology makes use of smart contracts on which people can build decentralized applications.
 
-| selection | Hero | Story | Creator Space 
-| --- | --- | --- | --- 
-| ![1](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/selection.png) | ![2](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/heroes.png) | ![3](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/story.png)|  | ![4](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/form.png) 
+| selection | Hero | Story | 
+| --- | --- | --- | 
+| ![1](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/selection.png) | ![2](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/heroes.png) | ![3](https://github.com/Sagar133/RPG-Solidity-Game/blob/elio-blockchain/blockchain/src/assets/story.png)|  |
 
 
 
@@ -188,8 +188,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-ELIO JORDAN LOPES - [@Lopes_el17](https://twitter.com/Lopes_el17) - lopeselio@gmail.com
-SAGAR BEHARA - [Sagar Behara](https://www.linkedin.com/in/sagarbehara/)
+1. SAGAR BEHARA - [Sagar Behara](https://www.linkedin.com/in/sagarbehara/)
+2. ELIO JORDAN LOPES - [@Lopes_el17](https://twitter.com/Lopes_el17) - lopeselio@gmail.com
+3. YASH AGARWAL - [@yashragrawal98](https://twitter.com/yashragrawal98)
+4. Elvin-Skaria
 
 
 
@@ -199,21 +201,6 @@ SAGAR BEHARA - [Sagar Behara](https://www.linkedin.com/in/sagarbehara/)
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
 
 
 
