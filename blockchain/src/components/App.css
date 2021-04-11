@@ -23,7 +23,11 @@ body::-webkit-scrollbar {
 .screen {
     height: 100vh;
     width: 100vw;
+    position: relative;
+    background: #8a8a88;
+
 }
+
 .nft-sec {
     height: 100vh;
     background: #8a8a88;
@@ -35,98 +39,44 @@ body::-webkit-scrollbar {
     position: relative;
 }
 .dungeon {
-    background-color: #e2e1e1;
+    /* background-color: #e2e1e1; */
     /* width: 80vw; */
-    /* height: 90vh; */
+    height: 60vh;
+    /* margin-top: 80px; */
     position: relative;
     border-left: 8px solid rgb(245, 245, 245);
     border-right: 8px solid rgb(126, 125, 125);
     border-top: 8px solid rgb(61, 61, 61);
     border-bottom: 8px solid rgba(180, 180, 180, 0.432);
 }
-.avatar-section {
-    padding: 10px;
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    height: 40%;
 
-}
-.avatar{
-    height: 300px !important;
-    width: 300px !important;
-    align-content: center !important;
-    border-left: 8px solid rgb(245, 245, 245);
-    border-right: 8px solid rgb(126, 125, 125);
-    border-top: 8px solid rgb(61, 61, 61);
-    border-bottom: 8px solid rgba(180, 180, 180, 0.432);
-    padding: 20px;
-    margin: 10px;
-    background-color: #8a8a88;
-    
-}
-
-.minted {
-    background-color: white;
-    height: 300px !important;
-    width: 300px !important;
-    margin-left: 50% !important;
-
-
-    /* height: 100% !important; */
-    /* height: 200px !important; */
-    /* width: auto; */
-    align-content: center !important;
-    border-left: 8px solid rgb(245, 245, 245);
-    border-right: 8px solid rgb(126, 125, 125);
-    border-top: 8px solid rgb(61, 61, 61);
-    border-bottom: 8px solid rgba(180, 180, 180, 0.432);
-    padding: 20px;
-    margin: 10px;
-}
 
 .mint-btn {
-    margin-top: 50% !important;
+    /* margin-top: 50% !important; */
+    vertical-align: center !important;
+    align-content: center !important;
     border-radius: 25%;
 }
-.title {
-    align-items: center !important;
-    margin: auto;
-    padding: 20px;
-}
+
 .text {
     /* margin-top: 50% !important; */
-
+    display: flex !important;
+    vertical-align: center;
+    margin: 20px;
     margin-left: auto;
     font-family: "Goblin";
     font-weight: 200;
     font-style: normal;
-    margin-left:auto;  
 }
 
 
 .trophy-cabinet {
     padding: 10px;
     margin-top: 20px;
-    /* position: absolute; */
-    /* bottom: 10px; */
-    /* width: 100%; */
-    /* height: 50%; */
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    width: 80%;;
     background-color: rgb(255, 255, 255);
-
-    /* margin-top: 30px; */
-    /* height: -60%; */
-    /* height: 30vw;
-    width: 100vh; */
-}
-.scroll {
-    overflow-y: scroll;
-    margin-top: 30px;
-    scrollbar-width: thin;          /* "auto" or "thin" */
-    scrollbar-face-color: blue orange;
-
 }
 /* .drawer {
     border-left: 4px solid rgb(245, 245, 245);
@@ -143,7 +93,7 @@ body::-webkit-scrollbar {
     width: 33%;
 
 } */
-.vertical-scrollable {
+/* .vertical-scrollable {
     height: auto;
 }
 .vertical-scrollable > .row {
@@ -151,22 +101,21 @@ body::-webkit-scrollbar {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    /* overflow-y: scroll; */
     white-space: nowrap;
-}
-.vertical-scrollable > .row > * {
+} */
+/* .vertical-scrollable > .row > * {
     border-left: 5px solid rgb(245, 245, 245);
     border-right: 5px solid rgb(126, 125, 125);
     border-top: 5px solid rgb(61, 61, 61);
     border-bottom: 5px solid rgba(180, 180, 180, 0.432);
     /* flex-grow: 1; */
-    flex: 1 1 30%;
+    /* flex: 1 1 30%;
     margin: 10px;
     width: 33%;
     height: 250px;
     width: 100px;
 
-}
+} */ */
 
 .dispToken {
     height: 220px;
