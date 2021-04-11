@@ -22,7 +22,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     uint256 public tokensCount;
     address public add;
 
-    struct Trophy  {
+    struct Trophy {
         uint256 tokenId;
         uint256 rarity;
         uint256 worth;
@@ -39,7 +39,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     mapping(bytes32 => uint256) requestToTokenId;
     mapping(address => mapping(uint256 => Trophy)) public usersNft;
     mapping(address => uint256) public usersNftCount;
-    
+
     constructor(
         address _VRFCoordinator,
         address _LinkToken,
@@ -70,7 +70,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
         requestToLevel[requestId] = levelPass;
         requestToSender[requestId] = msg.sender;
         requestAddress[requestId] = walletAddress;
-        
+
         return requestId;
     }
 
@@ -92,19 +92,23 @@ contract TrophyChar is ERC721, VRFConsumerBase {
                 requestToLevel[requestId]
             )
         );
-        
+
         tokensCount++;
         add = requestAddress[requestId];
-        usersNftCount[requestAddress[requestId]] = usersNftCount[requestAddress[requestId]] + 1;
-        
-        usersNft[requestAddress[requestId]][usersNftCount[requestAddress[requestId]]] = Trophy(
-                newId,
-                rarity,
-                worth,
-                requestToTrophyName[requestId],
-                requestToLevel[requestId]
-            );
-        
+        usersNftCount[requestAddress[requestId]] =
+            usersNftCount[requestAddress[requestId]] +
+            1;
+
+        usersNft[requestAddress[requestId]][
+            usersNftCount[requestAddress[requestId]]
+        ] = Trophy(
+            newId,
+            rarity,
+            worth,
+            requestToTrophyName[requestId],
+            requestToLevel[requestId]
+        );
+
         _safeMint(requestToSender[requestId], newId);
     }
 
