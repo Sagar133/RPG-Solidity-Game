@@ -87,7 +87,7 @@ We have used the following technologies for this project:
 * [Infuria](https://infura.io/)  (Access to Ethereum network)
 * [Metamask](https://metamask.io) (Wallet Provider)
 
-
+There are many more
 
 
 <!-- GETTING STARTED -->
