@@ -1,0 +1,51 @@
+import express, { Request, Response, NextFunction } from "express";
+import cors from "cors";
+import { corsUrl, environment } from "./config";
+import routesV1 from './routes/v1'
+
+
+process.on("uncaughtException", (e) => {
+  console.error(e);
+});
+
+process.once('SIGUSR2', function () {
+    process.kill(process.pid, 'SIGUSR2');
+  });
+  
+process.on('SIGINT', function () {
+// this is only called on ctrl+c, not restart
+    process.kill(process.pid, 'SIGINT');
+});
+
+const app = express();
+
+app.use(express.json({ limit: "10mb" }));
+app.use(
+  express.urlencoded({
+    limit: "10mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
+app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
+
+app.get('/',async (req,res)=>{
+	return res.send("Dungeon Crawler backend v1.0")
+})
+// Routes
+app.use("/v1", routesV1);
+
+// catch 404 and forward to error handler
+app.use((req:Request, res:Response, next:NextFunction) => {
+    const route = res.req.originalUrl;
+    throw new Error(`No such route: ${route}`);
+});
+
+// Middleware Error Handler
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+      console.error(err);
+      return res.status(500).send(err.message);
+});
+
+export default app;
