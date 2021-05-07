@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import { corsUrl, environment } from "./config";
 import routesV1 from './routes/v1'
+import morgan from 'morgan'
 
 
 process.on("uncaughtException", (e) => {
@@ -20,6 +21,7 @@ process.on('SIGINT', function () {
 const app = express();
 
 app.use(express.json({ limit: "10mb" }));
+app.use(morgan('dev'))
 app.use(
   express.urlencoded({
     limit: "10mb",
