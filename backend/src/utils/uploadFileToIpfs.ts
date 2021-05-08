@@ -5,6 +5,7 @@ import { UploadedFile } from 'express-fileupload';
 import path from 'path'
 
 let portString:string = ipfsPort.toString();
+const { globSource } = ipfsClient;
 
 const ipfs = new (ipfsClient as any)({
     host,
@@ -25,13 +26,8 @@ const addFileToIpfs = async(fileName:string,file:UploadedFile):Promise<string> =
             throw new Error(`error:failed to move uploaded file to local server dest: \n${err}`)
         }
     })
-    console.log('file path' + filePath)
-    const serverFile = fs.readFileSync(filePath);
-    console.log(`serverFile: ${serverFile}`)
-    const fileAdded = await ipfs.add({
-        path:fileName,
-        content:serverFile,
-    });
+    console.log('file path ' + filePath)
+    const fileAdded = await ipfs.add(globSource(filePath));
     console.log(fileAdded);
     if(!fileAdded.cid){
         throw new Error(`file not added to ipfs successfully`);
