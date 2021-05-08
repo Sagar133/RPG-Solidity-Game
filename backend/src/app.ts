@@ -3,6 +3,7 @@ import cors from "cors";
 import { corsUrl, environment } from "./config";
 import routesV1 from './routes/v1'
 import morgan from 'morgan'
+import fileUpload from 'express-fileupload'
 
 
 process.on("uncaughtException", (e) => {
@@ -30,6 +31,7 @@ app.use(
   })
 );
 app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
+app.use(fileUpload());
 
 app.get('/',async (req,res)=>{
 	return res.send("Dungeon Crawler backend v1.0")

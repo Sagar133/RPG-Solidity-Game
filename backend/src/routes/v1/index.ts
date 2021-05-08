@@ -1,7 +1,7 @@
 import express from 'express';
-import uploadToSlate from './slate'
+import newCharacter from './character'
 const router  = express.Router();
 
-router.use('/upload',uploadToSlate)
+router.use('/newCharacter',newCharacter)
 
 export default router;
