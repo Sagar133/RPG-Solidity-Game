@@ -7,10 +7,14 @@
     "start": "npm run build && npm run serve",
     "serve": "node -r dotenv/config build/server.js",
     "build": "npm run build-ts",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"Ipfs,TypeScript,Node\" -c \"green.bold,yellow.bold,cyan.bold,green.bold\" \"npm run ipfs-start\" \"npm run watch-ts\" \"npm run watch-node\"",
     "watch-node": "nodemon --delay 10000ms -r dotenv/config build/server.js",
     "build-ts": "tsc",
-    "watch-ts": "tsc -w"
+    "watch-ts": "tsc -w",
+    "ipfs-start": "ipfs daemon"
+  },
+  "engines": {
+    "node": "14.16.0"
   },
   "author": "madrigal1",
   "license": "ISC",
