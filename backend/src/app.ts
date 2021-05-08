@@ -5,7 +5,6 @@ import routesV1 from './routes/v1'
 import morgan from 'morgan'
 import fileUpload from 'express-fileupload'
 
-
 process.on("uncaughtException", (e) => {
   console.error(e);
 });
@@ -21,6 +20,7 @@ process.on('SIGINT', function () {
 
 const app = express();
 
+app.set('view engine','ejs');
 app.use(express.json({ limit: "10mb" }));
 app.use(morgan('dev'))
 app.use(
@@ -35,6 +35,10 @@ app.use(fileUpload());
 
 app.get('/',async (req,res)=>{
 	return res.send("Dungeon Crawler backend v1.0")
+})
+
+app.get('/form',(req,res)=>{
+    res.render('form');
 })
 // Routes
 app.use("/v1", routesV1);

@@ -1,6 +1,8 @@
 
 
-export const port = process.env.PORT || 8080;
+export const port = process.env.PORT || 8000;
+
+export const ipfsPort = process.env.IPFS_PORT || 5000;
 
 export const corsUrl = process.env.CORS_URL || "*";
 
