@@ -4,14 +4,16 @@ import fs from 'fs'
 import { UploadedFile } from 'express-fileupload';
 import path from 'path'
 
-let portString:string = ipfsPort.toString();
-const { globSource } = ipfsClient;
 
+const portString = ipfsPort.toString();
 const ipfs = new (ipfsClient as any)({
     host,
     portString,
     protocol
 });
+
+//@ts-ignore
+const { globSource } = ipfsClient
 
 
 const addFileToIpfs = async(fileName:string,file:UploadedFile):Promise<string> =>{
@@ -34,9 +36,9 @@ const addFileToIpfs = async(fileName:string,file:UploadedFile):Promise<string> =
     }
     const fileHash = fileAdded.cid;
     //delete file from server
-    // fs.unlink(filePath,(err)=>{
-    //     if(err)console.error(err);
-    // }) 
+    fs.unlink(filePath,(err)=>{
+        if(err)console.error(err);
+    }) 
     return fileHash;
 }
 
