@@ -90,7 +90,7 @@ class App extends Component {
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
           <a
             className="navbar-brand col-sm-3 col-md-2 mr-0 text-header"
-            href="#"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -105,8 +105,8 @@ class App extends Component {
         <div className='nft-sec container-fluid mt-5'>
           <div className='row'>
             <main role='main' className='col-lg-12 d-flex text-center'>
-              <div className="content mr-auto ml-auto">
-                <h5 className="text"><span>  &#x1F3C6;</span>Your Trophy Cabinet <span>  &#127942;</span></h5>
+              <div className="trophy-section-header">
+                <h5 className="trophy-title"><span>  </span>Your Trophy Cabinet <span> </span></h5>
                 <h6 className="text-header1 white">Powered by <img src={ChainlinkLogo} className='chainlink' /> <a className="hovero" href="https://docs.chain.link/docs/chainlink-vrf"><span className="hovero">Chainlink VRF</span></a>  </h6>
                 {/* <h5 className="text col-md-6 col-sm">Your Trophy Cabinet</h5> </div> */}
                 {
@@ -168,10 +168,10 @@ class App extends Component {
                   <div className="giftBox">
                     <Image src={nftMint[random]} roundedCircle style={{ height: 100, width: 100, alignSelf: 'center', justifyContent: 'center' }} />
                   </div>
-                  <span>Level: <span className="values">{levelPass}</span></span><br />
-                  <span>tokenID: <span className="values">{tokenId}</span></span><br />
-                  <span>Rarity: <span className="values">{rarity}</span></span><br />
-                  <span>Worth: <span className="values">{worth}</span></span><br />
+                  <span className="trophy-info">Level: <span className="values">{levelPass}</span></span><br />
+                  <span className="trophy-info">tokenID: <span className="values">{tokenId}</span></span><br />
+                  <span className="trophy-info">Rarity: <span className="values">{rarity}</span></span><br />
+                  <span className="trophy-info">Worth: <span className="values">{worth}</span></span><br />
                 </div>
               )
             })}
