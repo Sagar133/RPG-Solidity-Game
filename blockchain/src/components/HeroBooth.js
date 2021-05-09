@@ -19,7 +19,7 @@ export default function App() {
       <Header title={'Welcome to the Hero Voting Page'} />
       <div className="body">
         <div class="flex-container">
-         <Box img={Death} name="Sagar" />
+         <Box img={Death} name="Rishabh" />
          <Box img={Frog} name="Elio" />
          <Box img={Icy} name="Skaria" />
          <Box img={Dummy} name="Eli" />
