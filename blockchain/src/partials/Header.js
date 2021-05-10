@@ -18,15 +18,16 @@ function Header() {
 
   return (
     <div className="screen">
-        <Navbar bg="dark" expand="lg">
+        <Navbar className="mov" bg="dark" expand="lg" sticky="top">
           <Navbar.Brand className="brand" href="#home">The Dungeon Crawler</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
+            <Nav className="ml-auto" inline>
               <Nav.Link className="link" href="#home">Welcome</Nav.Link>
               <Nav.Link className="link" href="#link">Game Experiences</Nav.Link>
               <Nav.Link className="link" href="#link">Features</Nav.Link>
               <Nav.Link className="link" href="#link">Contact Us</Nav.Link>
+              <Button variant="outline-primary">Login using Metamask</Button>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

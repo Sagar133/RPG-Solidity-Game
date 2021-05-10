@@ -23,6 +23,10 @@ body::-webkit-scrollbar {
   font-size: larger !important;
 }
 
+.mov {
+    position: relative;
+}
+
 .link {
   color: white !important;
   ffont-weight: 1000 !important;
