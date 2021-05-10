@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+body{
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: #222831;
+    text-color: white;
+}
+body::-webkit-scrollbar {
+    width: 0.4em;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: #222732;
+    outline: 1px solid #222732;
+  }
+
+.videoTag {
+    height: calc(100vh-50px) !important;
+    width: 100vw !important;
+    position: fixed;
+}
+.tag {
+    float: left;
+    position: absolute;
+    left: 100px;
+    top: 500px;
+    z-index: 1000;
+    background-color: #2227328f;
+    /* opacity: 20%; */
+    padding: 15px;
+    color: #FFFFFF;
+    /* font-weight: bold; */
+    justify-content: space-between;
+ }
+
+.welcome {
+    color: #2a60d3;
+    font-weight: 900;
+    font-size: 50px;
+}
+
+.game {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 80px;
+}
+
+.desc{
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.sign-up{
+    float: right;
+    border-radius: 40px;
+    border: 5px solid white;
+    padding: 15px;
+    background-color: #22273;
+    color: white;
+    font-weight: 800;
+}
+
+.sign-up:hover {
+    float: right;
+    border-radius: 50px;
+    border: 5px solid #2a60d3;
+    /* padding: 10px; */
+    background-color: #2a60d3;
+    color: white;
+    font-weight: 900;
+}
