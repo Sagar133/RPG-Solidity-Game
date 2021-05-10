@@ -8,7 +8,7 @@ import Login from './components/Login';
 import HeroBooth from './components/HeroBooth';
 import StoryBooth from './components/StoryBooth';
 import App from './components/App';
-
+import Landing from './components/Landing'
 
 
 
@@ -16,7 +16,8 @@ export default function Routes () {
         return (
             <BrowserRouter history={history} forceRefresh={true}>
                 <Switch>
-                    <Route path="/" exact component={Selection} />
+                    <Route path="/" exact component={Landing} />
+                    <Route path="/Selection" exact component={Selection} />
                     <Route path="/Upload" exact component={Upload} />
                     <Route path="/Login" exact component={Login} />
                     <Route path="/HeroBooth" exact component={HeroBooth} />
