@@ -4,6 +4,9 @@ import './css/Chest.css'
 import AOS from 'aos'
 import "aos/dist/aos.css";
 // import { Link } from 'react-router-dom';
+// import Death from '../assets/elf.png'
+// import { Image, Button } from 'react-bootstrap'
+
 
 
 function Chest() {
@@ -20,12 +23,14 @@ function Chest() {
                 <p className='desc'>Chests are sources of Dungeon Coins ($DGN ERC-20 tokens) which you can find around in our maps, and claim them by beating all monsters that come your way. You can use them to Redeem NFTs and reward artists for your favourite artwork.</p>
             </div>
             <div className="main" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-                <div className="fakeimg"><iframe className="nft" src="https://giphy.com/embed/lXiRm5H49zYmHr3i0" width="100%" height="100%"  frameBorder="0" allowFullScreen></iframe></div>
+                {/* // image */}
             </div>
         </div>
         <div className="row2" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">            
             <div className="main" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-                <div className="fakeimg"><iframe className="nft" src="https://giphy.com/embed/lXiRm5H49zYmHr3i0" width="100%" height="100%"  frameBorder="0" allowFullScreen></iframe></div>
+                <div className="fakeimg">
+                    {/* // img */}
+                </div>
             </div>
             <div className="side" data-aos="fade-up" data-aos-duration="3000">
                 <div className="welcome1">Redeem NFTs</div>
@@ -38,7 +43,9 @@ function Chest() {
                 <p className='desc2'>Artists and NFT creators can create their favourite characters, story/maps. These are listed on our Art Gallery, where NFT curators, game players can reward them by up-voting their favourite artwork using $DGN tokens. The created characters/maps may be used as game assets in the future releases.</p>
             </div>
             <div className="main" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-                <div className="fakeimg"><iframe className="nft" src="https://giphy.com/embed/lXiRm5H49zYmHr3i0" width="100%" height="100%"  frameBorder="0" allowFullScreen></iframe></div>
+                <div className="fakeimg">
+                     {/* // image */}
+                </div>
             </div>
         </div>  
       </div>
