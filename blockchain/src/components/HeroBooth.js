@@ -27,8 +27,6 @@ export default function App() {
          <Box img={Hemin} name="Elon Musk" />
          <Box img={Hyena} name="Elvin" />
          <Box img={Elf} name="Jeff" />
-
-
         </div>
       </div>
     </div>
