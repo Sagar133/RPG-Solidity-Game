@@ -11,6 +11,7 @@ body {
 }
 .row1 {  
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     padding: 50px;
     background-image: linear-gradient(to bottom, #222732, #232632, #242432, #252331, #272130, #261e2b, #251b27, #231822, #1d141a, #170e13, #0e070a, #000000);
@@ -43,14 +44,9 @@ body {
   }
   
   .fakeimg {
-    /* background-color: #aaa; */
     width: 100%;
     padding: 20px;
-    height: 100%;
-    padding-bottom:100%;
-    position:relative;
   }
-  
 
   @media screen and (max-width: 700px) {
     .row {   
@@ -74,7 +70,10 @@ body {
     color: #ed99fd;
     font-weight: 900;
     font-size: 70px;
-}pixelated 
+}
+
+.desc1 {
+    color: #fab3b3;
     font-weight: 800;
     font-size: large;
 }
