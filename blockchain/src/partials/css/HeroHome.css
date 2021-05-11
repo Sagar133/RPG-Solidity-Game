@@ -20,7 +20,7 @@ body::-webkit-scrollbar {
 .videoTag {
     height: calc(100vh-50px) !important;
     width: 100vw !important;
-    position: fixed;
+    position: relative
 }
 .tag {
     float: left;
