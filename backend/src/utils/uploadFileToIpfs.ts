@@ -1,20 +1,18 @@
-import ipfsClient from 'ipfs-http-client';
-import {host,ipfsPort,protocol} from '../config'
 import fs from 'fs'
 import { UploadedFile } from 'express-fileupload';
 import path from 'path'
+import pinataSDK from '@pinata/sdk'
+import {pinataConfig} from '../config'
 
+const pinata = pinataSDK(pinataConfig.api_key,pinataConfig.api_secret);
 
-const portString = ipfsPort.toString();
-const ipfs = new (ipfsClient as any)({
-    host,
-    portString,
-    protocol
+pinata.testAuthentication().then((result:any) => {
+    //handle successful authentication here
+    console.log(result);
+}).catch((err:any) => {
+    //handle error here
+    console.log(err);
 });
-
-//@ts-ignore
-const { globSource } = ipfsClient
-
 
 const addFileToIpfs = async(fileName:string,file:UploadedFile):Promise<string> =>{
     //two keys 
@@ -29,12 +27,18 @@ const addFileToIpfs = async(fileName:string,file:UploadedFile):Promise<string> =
         }
     })
     console.log('file path ' + filePath)
-    const fileAdded = await ipfs.add(globSource(filePath));
-    console.log(fileAdded);
-    if(!fileAdded.cid){
-        throw new Error(`file not added to ipfs successfully`);
-    }
-    const fileHash = fileAdded.cid;
+    const readableStreamForFile = fs.createReadStream(filePath);
+    let fileHash =undefined;
+    try {
+        const result = await pinata.pinFileToIPFS(readableStreamForFile).then((result:any) => {
+            //handle results here
+            console.log(result);
+            fileHash = result.IpfsHash;
+        });
+    }catch(err){
+        //handle error here
+        console.log(err);
+    };
     //delete file from server
     fs.unlink(filePath,(err)=>{
         if(err)console.error(err);

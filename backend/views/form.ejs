@@ -7,14 +7,24 @@
     <title>IPFS demo</title>
 </head>
 <body>
-    <h1>Uplaod file to ipfs</h1>
+    <h1>Upload file to ipfs</h1>
     <form enctype="multipart/form-data" method="POST" action="/v1/character/new">
-        <label for="fileName">FileName</label>
-        <input type="text" name="fileName" />
+        <label for="name">Character Name:</label>
+        <input type="text" name="name" />
+        <br/>
+        <label for="desc" >Character Descripton:</label>
+        <input type="text" name="desc" value="test"/>
+        <br/>
+        <label for="email" >Email:</label>
+        <input type="text" name="email" value="test@email.com"/>
+        <br/>
+        <label for="walletAddress" >Wallet Addr:</label>
+        <input type="text" name="walletAddress"value="0x12345" />
         <br/>
         <label for="file">Upload File</label>
         <input type="file" name="file"/>
         <br/>
+        <input type="hidden" name="isStory" value="no" >
         <input type="submit" />
     </form>
 </body>
