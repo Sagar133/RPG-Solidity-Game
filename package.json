@@ -4,6 +4,7 @@
   "description": "A Phaser 3 Project Template",
   "main": "src/index.js",
   "scripts": {
+    "dapp": "concurrently -k -p \"[{name}]\" -n \"Game,Frontend\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run start\" \"npm run start --prefix blockchain\"",
     "build": "webpack --config webpack/prod.js ",
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
@@ -34,6 +35,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.0.0",
+    "concurrently": "^6.1.0",
     "phaser": "^3.50.0",
     "phaser-camera-offset": "^1.0.1",
     "web3": "^1.3.5"
