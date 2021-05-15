@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import {Navbar, Nav, NavDropdown, Form,  FormControl, Button } from 'react-bootstrap'
 import './css/HeroHome.css'
 // import { Link } from 'react-router-dom';
-import sample from '../assets/1.mp4';
 
 function HeroHome() {
 
   return (
     <div className="video">
         <video className='videoTag' autoPlay loop muted>
-            <source src={sample} type='video/mp4' />
+            <source src="https://ipfs.io/ipfs/QmTAznyH583xUgEyY5zdrPB2LSGY7FUBPDddWKj58GmBgp?filename=1.mp4" 
+            type='video/mp4' />
         </video>
         <div class="tag">
             <div className="welcome">WELCOME TO</div>
