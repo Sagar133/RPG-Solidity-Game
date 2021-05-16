@@ -41,6 +41,14 @@ export default function App() {
           alt="home"  />
         </div>
       </div>
+      <div
+          className="play-game"
+          onClick={() => {
+            window.open(window.location.protocol + "//" + window.location.hostname + ":8080/");
+          }}
+        >
+          <h4 className="text-header">Play Game</h4>
+        </div>
     </div>
   );
 }
