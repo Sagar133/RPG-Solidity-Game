@@ -47,7 +47,7 @@ export default function App() {
             window.open(window.location.protocol + "//" + window.location.hostname + ":8080/");
           }}
         >
-          <h4 className="text-header">Play Game</h4>
+          <h4 className="text-header-game">Play Game</h4>
         </div>
     </div>
   );
