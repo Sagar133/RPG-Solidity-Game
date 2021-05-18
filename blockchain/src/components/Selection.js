@@ -1,9 +1,6 @@
 import React from "react";
 import "../styles/App.css";
 import history from "../history";
-import Angel from "../assets/Angel.png";
-import Castle from "../assets/Castle.png";
-import Home from "../assets/home.png";
 
 export default function App() {
   return (
@@ -18,7 +15,8 @@ export default function App() {
           }}
         >
           <h4 className="text-header">Vote for Hero</h4>
-          <img className="dashboard-card-image" src={Angel} alt="Angel"  />
+          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/Qme7QyNBX1Q997Fp1bin8JK9KCpk5hyauae35Aosfp2VxV?filename=Angel.png" 
+          alt="Angel"  />
         </div>
         <div
           className="select-story"
@@ -28,7 +26,8 @@ export default function App() {
           }}
         >
           <h4 className="text-header">Vote for Story</h4>
-          <img className="dashboard-card-image" src={Castle} alt="Angel"  />
+          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/QmemTF7ziTVBFFpZzqYvSF3hdK5q6J2bZ85FYUr4mG2CUw?filename=Castle.png" 
+          alt="Castel"  />
         </div>
         <div
           className="select-story"
@@ -38,9 +37,18 @@ export default function App() {
           }}
         >
           <h4 className="text-header">Go to your Inventory</h4>
-          <img className="dashboard-card-image" src={Home} alt="home"  />
+          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/QmccVpftx3x3W7GxTQGkJjXS6VyJCpgDgHagkAoJCsLnXM?filename=home.png" 
+          alt="home"  />
         </div>
       </div>
+      <div
+          className="play-game"
+          onClick={() => {
+            window.open(window.location.protocol + "//" + window.location.hostname + ":8080/");
+          }}
+        >
+          <h4 className="text-header-game">Play Game</h4>
+        </div>
     </div>
   );
 }

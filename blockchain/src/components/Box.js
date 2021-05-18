@@ -2,9 +2,6 @@ import React from 'react'
 import { Image, Button } from 'react-bootstrap'
 import { BsHeart } from "react-icons/bs";
 import {FiThumbsUp} from 'react-icons/fi';
-import UpvoteButton from '../assets/upvote.svg';
-import LikeOutline from '../assets/like-outlined.svg';
-import LikeFill from '../assets/like-fill.svg';
 
 export default function Box(props) {
     return (
@@ -14,7 +11,8 @@ export default function Box(props) {
             {" "}
             Submitted by: <span className="name-artist">{props.name}</span>{" "}
           </div>
-          <img src={LikeOutline} className="like-button" alt="like" />
+          <img src="https://ipfs.io/ipfs/QmWV3Z5fgJyQSTh4ibe3p6V2nydyL6pjeqAZTU4ZDL4f1t?filename=like-outlined.svg"
+           className="like-button" alt="like" />
         </div>
         <div className="imageBox">
           <Image
@@ -37,7 +35,8 @@ export default function Box(props) {
           </div> */}
           <div className="upvote">
             <a href="#">
-              <img src={UpvoteButton} alt="Upvote Button" />
+              <img src="https://ipfs.io/ipfs/Qmbvgv6YqyTeopjdutCKohrEMxL4Dmd3xpbjpUDAN4Axdj?filename=upvote.svg" 
+              alt="Upvote Button" />
             </a>
           </div>
         </div>

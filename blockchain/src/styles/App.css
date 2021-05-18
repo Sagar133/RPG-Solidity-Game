@@ -83,7 +83,22 @@ box-shadow: inset 30px 24px 34px rgba(209, 217, 230, 0.34), inset 30px 28px 38px
         font-size: 32px;
     }
 }
-    
+
+.play-game{
+    border: 5px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    align-items: center;
+    height: 75px;
+    width: 550px;
+    text-align: center;
+    box-shadow: -14px -14px 20px rgba(229, 229, 229, 0.07), 20px 20px 25px rgba(0, 0, 0, 0.15);
+    }
+.play-game:hover{
+       box-shadow: inset -14px -14px 20px rgba(229, 229, 229, 0.07), inset 20px 20px 25px rgba(0, 0, 0, 0.15);
+    }
 
 h4 { 
     color: #087ec7;
