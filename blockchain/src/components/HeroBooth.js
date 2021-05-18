@@ -2,14 +2,6 @@ import React from 'react'
 import '../styles/booth.css'
 import Header from './Header'
 import Box from './Box'
-import Death from '../assets/death.png'
-import Frog from '../assets/frog.png'
-import Icy from '../assets/icy.png'
-import Dummy from '../assets/dummy.jpeg'
-import Undead from '../assets/undead.png'
-import Hemin from '../assets/hemin.png'
-import Hyena from '../assets/hyena.png'
-import Elf from '../assets/elf.png'
 
 
 
@@ -19,14 +11,14 @@ export default function App() {
       <Header title={'Welcome to the Hero Voting Page'} />
       <div className="body">
         <div class="flex-container">
-         <Box img={Death} name="Rishabh" />
-         <Box img={Frog} name="Elio" />
-         <Box img={Icy} name="Skaria" />
-         <Box img={Dummy} name="Eli" />
-         <Box img={Undead} name="Tony Stark" />
-         <Box img={Hemin} name="Elon Musk" />
-         <Box img={Hyena} name="Elvin" />
-         <Box img={Elf} name="Jeff" />
+         <Box img="https://ipfs.io/ipfs/QmeesF1xg9R6Lbg2dg3xx8bC33SVFfXsFVoDFWJpfocgNU?filename=death.png" name="Rishabh" />
+         <Box img="https://ipfs.io/ipfs/QmR7nnghewVCo2sMDG85NDAjgr2jXyajSJ9QAEquTJvbWJ?filename=frog.png" name="Elio" />
+         <Box img="https://ipfs.io/ipfs/QmQPvDRcPLGsSHv7qT3PDCRWwFpwo2uxnxzrRWk35G7Jjr?filename=icy.png" name="Skaria" />
+         <Box img="https://ipfs.io/ipfs/QmPNKMts9HozfRze9MLzxuKVZtHsn2irYvFKXRbtdvkRqm?filename=dummy.jpeg" name="Eli" />
+         <Box img="https://ipfs.io/ipfs/QmT9vR2ryVJc4DPM2rKitqbEuf7qY86RB8SEfa2nxz8yKA?filename=undead.png" name="Tony Stark" />
+         <Box img="https://ipfs.io/ipfs/Qmb5zY2biFYBFuCBguShdS1rkFGCnn6uS8sw5xax5y4mJh?filename=hemin.png" name="Elon Musk" />
+         <Box img="https://ipfs.io/ipfs/QmUKPjH49ahKoXmsRC2nJWJY8aK47zxGDPUwGy81Rt6HW7?filename=hyena.png" name="Elvin" />
+         <Box img="https://ipfs.io/ipfs/QmVuP4MnPwa3MLx72etT5FT9AuxswzwBw6CubpjNkRHqY1?filename=elf.png" name="Jeff" />
 
 
         </div>

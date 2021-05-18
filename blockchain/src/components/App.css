@@ -87,10 +87,14 @@ body::-webkit-scrollbar {
 .trophy-info{
     font-size: 24px;
 }
-.text-header {
+.text-header, .text-header-game {
     color:#EEEEEE;
     font-weight: 700;
     font-size: 24px;
+}
+
+.text-header-game {
+    padding: 20px;
 }
 
 .text-header1 {
