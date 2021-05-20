@@ -17,7 +17,7 @@ function Header() {
 //   }, [top]);  
 
   return (
-    <div className="screen">
+    <>
         <Navbar className="mov" bg="dark" expand="lg" sticky="top">
           <Navbar.Brand className="brand" href="#home">The Dungeon Crawler</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -33,7 +33,7 @@ function Header() {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-    </div>
+    </>
   );
 }
 
