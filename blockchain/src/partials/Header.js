@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Navbar, Nav, NavDropdown, Form,  FormControl, Button } from 'react-bootstrap'
 import './css/Header.css'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header() {
 
@@ -17,7 +17,7 @@ function Header() {
 //   }, [top]);  
 
   return (
-    <div className="screen">
+    <>
         <Navbar className="mov" bg="dark" expand="lg" sticky="top">
           <Navbar.Brand className="brand" href="#home">The Dungeon Crawler</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,11 +27,13 @@ function Header() {
               <Nav.Link className="link" href="#link">Game Experiences</Nav.Link>
               <Nav.Link className="link" href="#link">Features</Nav.Link>
               <Nav.Link className="link" href="#link">Contact Us</Nav.Link>
-              <Button variant="outline-primary">Login using Metamask</Button>
+              <Link to="/selection">
+                <Button variant="outline-primary">Login using Metamask</Button>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-    </div>
+    </>
   );
 }
 

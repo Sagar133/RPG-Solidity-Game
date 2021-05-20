@@ -11,19 +11,19 @@ font-weight: 900;
 }
 
 .navbox {
-  border-style: solid;
-  height: 30px;
+  height: 40px;
   width: 80px;
-  border-width: 1px;
-  border-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
   color: black;
-}
+      box-shadow: -14px -14px 20px rgba(229, 229, 229, 0.07), 20px 20px 25px rgba(0, 0, 0, 0.15);
 
+}
 .navbox:hover {
-  background-color: #6ebae9;
-  color: white;
-  border-color: black;
+       box-shadow: inset -14px -14px 20px rgba(229, 229, 229, 0.07), inset 20px 20px 25px rgba(0, 0, 0, 0.15);
+
 }
 
 h4 {
