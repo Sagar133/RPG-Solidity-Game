@@ -10,7 +10,7 @@ import {
 import "./css/HeroHome.css";
 import { Link } from 'react-router-dom';
 
-function HeroHome() {
+function HeroHome(props) {
   return (
     <div className="v-landing" id="hero">
       <div className="video">
@@ -28,7 +28,7 @@ function HeroHome() {
           Play, Create your own Artwork and get Rewarded with NFTs
         </div>
         <Link to="/selection">
-        <div className="sign-up">Login with MetaMask</div>
+        <div className="sign-up">Go to Dashboard</div>
         </Link>
       </div>
     </div>
