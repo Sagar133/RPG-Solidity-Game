@@ -8,11 +8,11 @@ import {
   Button,
 } from "react-bootstrap";
 import "./css/HeroHome.css";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function HeroHome() {
   return (
-    <div className="v-landing">
+    <div className="v-landing" id="hero">
       <div className="video">
         <video className="videoTag" autoPlay loop muted>
           <source
@@ -27,7 +27,9 @@ function HeroHome() {
         <div className="desc">
           Play, Create your own Artwork and get Rewarded with NFTs
         </div>
+        <Link to="/selection">
         <div className="sign-up">Login with MetaMask</div>
+        </Link>
       </div>
     </div>
   );
