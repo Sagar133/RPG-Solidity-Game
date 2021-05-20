@@ -30,6 +30,22 @@ background-image: linear-gradient(to right, red , yellow);
 box-shadow: inset 30px 24px 34px rgba(209, 217, 230, 0.34), inset 30px 28px 38px rgba(209, 217, 230, 0.4), inset 30px 35px 45px rgba(209, 217, 230, 0.48), inset 30px 54px 61px rgba(209, 217, 230, 0.67), inset -20px -63px 65px rgba(255, 255, 255, 0.75), inset -20px -36.8341px 42.6719px rgba(255, 255, 255, 0.539141), inset -20px -31.3638px 35.026px rgba(255, 255, 255, 0.44708), inset -20px -28.4185px 30.1667px rgba(255, 255, 255, 0.375);
 }
 
+.play-game{
+    border: 5px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    align-items: center;
+    height: 75px;
+    width: 550px;
+    text-align: center;
+    box-shadow: -14px -14px 20px rgba(229, 229, 229, 0.07), 20px 20px 25px rgba(0, 0, 0, 0.15);
+    }
+.play-game:hover{
+       box-shadow: inset -14px -14px 20px rgba(229, 229, 229, 0.07), inset 20px 20px 25px rgba(0, 0, 0, 0.15);
+    }
+
 .select-story{
     border: 5px;
     border-radius: 30px;
@@ -61,6 +77,10 @@ box-shadow: inset 30px 24px 34px rgba(209, 217, 230, 0.34), inset 30px 28px 38px
         height: 250px;
         width:250px;
     }
+    .play-game{
+        height: 100px;
+        width: 200px;
+    }
         .header{
         font-size: 48px;
     }
@@ -70,11 +90,16 @@ box-shadow: inset 30px 24px 34px rgba(209, 217, 230, 0.34), inset 30px 28px 38px
         .selection{
             flex-direction: column;
         }
-    .dashboard-card-image{
+    .dashboard-card-image {
         height: 100px;
         width:100px;
     }
-    .select-story{
+    .play-game {
+        height: 100px;
+        width:200px;
+    }
+
+    .select-story {
         height: 250px;
         width:250px;
         margin: 0 0 30px 0;
@@ -84,21 +109,7 @@ box-shadow: inset 30px 24px 34px rgba(209, 217, 230, 0.34), inset 30px 28px 38px
     }
 }
 
-.play-game{
-    border: 5px;
-    border-radius: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    align-items: center;
-    height: 75px;
-    width: 550px;
-    text-align: center;
-    box-shadow: -14px -14px 20px rgba(229, 229, 229, 0.07), 20px 20px 25px rgba(0, 0, 0, 0.15);
-    }
-.play-game:hover{
-       box-shadow: inset -14px -14px 20px rgba(229, 229, 229, 0.07), inset 20px 20px 25px rgba(0, 0, 0, 0.15);
-    }
+.
 
 h4 { 
     color: #087ec7;
