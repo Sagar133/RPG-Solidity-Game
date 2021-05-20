@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Navbar, Nav, NavDropdown, Form,  FormControl, Button } from 'react-bootstrap'
 import './css/Header.css'
 import { Link } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 function Header() {
 
@@ -23,8 +24,17 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto" inline>
-              <Nav.Link className="link" href="#home">Welcome</Nav.Link>
-              <Nav.Link className="link" href="#link">Game Experiences</Nav.Link>
+              <Nav.Link onClick={() => scroller.scrollTo('hero', {
+                smooth: true,
+                offset: -70,
+                duration: 1000 })} 
+                className="link" href="#hero">Welcome</Nav.Link>
+              <Nav.Link onClick={() => scroller.scrollTo('descr', {
+                smooth: true,
+                offset: -70,
+                duration: 1000,
+                })} 
+                className="link" href="#descr">Game Experiences</Nav.Link>
               <Nav.Link className="link" href="#link">Features</Nav.Link>
               <Nav.Link className="link" href="#link">Contact Us</Nav.Link>
               <Link to="/selection">

@@ -19,7 +19,7 @@ function Chest() {
       }, []);
 
   return (
-    <div className="description">
+    <div className="description" id="descr">
       <div
         className="row1"
         data-aos="fade-down"
