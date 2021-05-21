@@ -13,8 +13,6 @@ function Landing() {
       <Header />
       <HeroHome />
       <Chest />
-
-
     </div>
   );
 }
