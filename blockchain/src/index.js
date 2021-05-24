@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Navigation from './navigation';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<React.StrictMode><Navigation /></React.StrictMode>, document.getElementById('root'));
+ReactDOM.render(<Navigation />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

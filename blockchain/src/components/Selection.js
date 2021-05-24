@@ -1,11 +1,13 @@
 import React from "react";
 import "../styles/App.css";
 import history from "../history";
+import Carousel from "./Carousel";
 
 export default function App() {
   return (
     <div className="main screen">
-      <div className="header">Welcome to the Dungeon Crawler</div>
+      <Carousel/>
+      <div className="carousel-padding header">Welcome to the Dungeon Crawler</div>
       <div className="selection">
         <div
           className="select-story"
@@ -41,14 +43,6 @@ export default function App() {
           alt="home"  />
         </div>
       </div>
-      <div
-          className="play-game"
-          onClick={() => {
-            window.open(window.location.protocol + "//" + window.location.hostname + ":8080/");
-          }}
-        >
-          <h4 className="text-header-game">Play Game</h4>
-        </div>
     </div>
   );
 }
