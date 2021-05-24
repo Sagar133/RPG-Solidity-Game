@@ -16,6 +16,51 @@ body::-webkit-scrollbar {
     background-color: #222732;
     outline: 1px solid #222732;
   }
+
+  @media screen and (max-width: 700px) {
+    .tag {   
+      /* flex-direction: column;
+      float: none; */
+      /* float: left !important; */
+      overflow: auto !important;
+      width: 300px !important;
+      /* padding: 50px !important; */
+      /* margin: 20px !important; */
+      display: flex;
+      flex-direction: column;
+
+    }
+    .video {
+      visibility: hidden;
+    }
+    .welcome {
+      font-weight: 800 !important;
+      font-size: 35px !important;
+      overflow: auto;
+  
+    }
+    .game{
+      font-weight: 900 !important;
+      font-size: 45px !important;
+  
+    }
+    .descri{
+      font-weight: 800 !important;
+      font-size: 15px !important;
+  
+    }
+    .sign-up{
+      float: left !important;
+      float: right;
+      border-radius: 20px;
+      border: 2.5px solid white;
+      margin-top: 10px;
+      padding: 7px;
+      background-color: #22273;
+      color: white;
+      font-weight: 800;
+    }
+  }
 .video{
     position:absolute;
   top:0;
@@ -37,6 +82,7 @@ body::-webkit-scrollbar {
 .tag {
     float: left;
     position: absolute;
+    display: block;
     left: 100px;
     top: 50vh;
     z-index: 1000;
@@ -46,6 +92,7 @@ body::-webkit-scrollbar {
     color: #FFFFFF;
     /* font-weight: bold; */
     justify-content: space-between;
+    width: 1000px;
  }
 
 .welcome {
@@ -60,7 +107,7 @@ body::-webkit-scrollbar {
     font-size: 80px;
 }
 
-.desc{
+.descri{
     color: #ffffff;
     font-weight: 800;
 }
@@ -84,3 +131,4 @@ body::-webkit-scrollbar {
     color: white;
     font-weight: 900;
 }
+

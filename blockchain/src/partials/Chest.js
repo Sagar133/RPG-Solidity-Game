@@ -27,8 +27,8 @@ function Chest() {
         data-aos-duration="1500"
       >
         <div className="side" data-aos="fade-up" data-aos-duration="3000">
-          <div className="welcome">Claim Chests</div>
-          <p className="desc">
+          <div className="welcome3">Claim Chests</div>
+          <p className="desc3">
             Chests are sources of Dungeon Coins ($DGN ERC-20 tokens) which you
             can find around in our maps, and claim them by beating all monsters
             that come your way. You can use them to Redeem NFTs and reward
