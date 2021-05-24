@@ -6,7 +6,7 @@ import image5 from "../assets/carousel5.jpeg";
 import React, { useEffect } from "react";
 
 import "../styles/Carousel.css";
-import Carousel from "@brainhubeu/react-carousel";
+import Carousel, { autoplayPlugin, slidesToShowPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 
 const CarouselSection = () => {
@@ -15,12 +15,26 @@ const CarouselSection = () => {
     <article className="carouselsection">
       <div className="carousel-image flex items-center justify-center z-20">
         <Carousel
-          infinite
-          animationSpeed={1000}
-          autoPlay={3000}
+          plugins={[
+            'infinite',
+            'arrows',
+           {
+             resolve: autoplayPlugin,
+             options: {
+               interval: 4000,
+             }
+           },
+           {
+            resolve: slidesToShowPlugin,
+            options: {
+             numberOfSlides: 1,
+            },
+          }
+         ]}   
+         animationSpeed={2000}
         >
-          <img class="carouselImg" src={image5} alt="carousel-img-1" />
-          <img class="carouselImg" src={image4} alt="carousel-img-1" />
+          <img class="carouselImg" src={image1} alt="carousel-img-1" />
+          <img class="carouselImg" src={image2} alt="carousel-img-1" />
           <img class="carouselImg" src={image3} alt="carousel-img-3" />
           <img class="carouselImg" src={image4} alt="carousel-img-4" />
           <img class="carouselImg" src={image5} alt="carousel-img-5" />
