@@ -1,0 +1,80 @@
+/* .carousel-image {
+  height: 30vh;
+} */
+.carouselsection{
+    position: relative;
+}
+.carousel-image{
+                width: 100vw;
+        height: 30vh;            
+        position: absolute;
+        top: 0;
+        left: 0;
+}
+.overlay-carousel{
+            width: 100vw;
+        height: 30vh;            
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.4);
+        z-index: 10;
+}
+.cdiv {
+  opacity: 0;
+  z-index: -1;
+}
+
+.carousel-text1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  @apply mx-2 px-6;
+}
+
+.carousel-text2 {
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+  margin: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 3rem;
+  display: table;
+  @apply text-sm md:text-xl p-4 mx-6 my-4;
+}
+.carouselImg{
+    height: 30vh;
+    width:100vw;
+}
+/* #leftArr {
+  cursor: url("../../assets/left-arrow.svg"), auto;
+  width: 200px;
+  height: 440px;
+  z-index: 10;
+  position: relative;
+  top: 0;
+  outline: none;
+}
+
+#rightArr {
+  cursor: url("../../assets/right-arrow.svg"), auto;
+  width: 200px;
+  height: 440px;
+  z-index: 10;
+  position: relative;
+  top: 0;
+  right: 200px;
+  outline: none;
+} */
+
+.BrainhubCarousel__customArrows {
+  width: 0px !important;
+  height: 440px !important;
+}
+
+.BrainhubCarousel__container {
+  border-radius: 8px;
+}
