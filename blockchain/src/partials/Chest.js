@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react';
 import './css/Chest.css'
 import AOS from 'aos'
 import "aos/dist/aos.css";
-import chest from '../assets/chest.gif';
-import DAO from '../assets/dao.gif';
-import NFT from '../assets/nft.gif';
 // import { Link } from 'react-router-dom';
 // import Death from '../assets/elf.png'
 // import { Image, Button } from 'react-bootstrap'
@@ -41,7 +38,7 @@ function Chest() {
           data-aos-easing="linear"
           data-aos-duration="1500"
         >
-          <img className="l-img" src={chest} alt="Chest" />
+          <img className="l-img" src="https://ipfs.io/ipfs/QmTaCLxUTF3FH22ueupBHUQbQBxWppW99x13TPqPLybxZE?filename=chest.gif" alt="Chest" />
         </div>
       </div>
       <div
@@ -57,7 +54,7 @@ function Chest() {
           data-aos-duration="1500"
         >
           <div className="fakeimg">
-            <img className="l-img" src={NFT} alt="NFT" />
+            <img className="l-img" src="https://ipfs.io/ipfs/QmZNV8P9XywyMtGSa4jcdjcabLsTQCtx5Cn8d1hFhUPZ7D?filename=nft.gif" alt="NFT" />
           </div>
         </div>
         <div className="side" data-aos="fade-up" data-aos-duration="3000">
@@ -94,7 +91,7 @@ function Chest() {
           data-aos-duration="1500"
         >
           <div className="fakeimg">
-            <img className="l-img" src={DAO} alt="Art Gallery" />
+            <img className="l-img" src="https://ipfs.io/ipfs/Qmdr6tgjCbDexWoZsE9qtJpGEWGR6ttCdtBtManUERfVcd?filename=dao.gif" alt="Art Gallery" />
           </div>
         </div>
       </div>
