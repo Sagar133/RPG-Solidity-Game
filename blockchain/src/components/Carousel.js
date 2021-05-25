@@ -1,8 +1,3 @@
-import image1 from "../assets/carousel1.jpeg";
-import image2 from "../assets/carousel2.jpeg";
-import image3 from "../assets/carousel3.jpeg";
-import image4 from "../assets/carousel4.jpeg";
-import image5 from "../assets/carousel5.jpeg";
 import React, { useEffect } from "react";
 
 import "../styles/Carousel.css";
@@ -33,11 +28,11 @@ const CarouselSection = () => {
          ]}   
          animationSpeed={2000}
         >
-          <img class="carouselImg" src={image1} alt="carousel-img-1" />
-          <img class="carouselImg" src={image2} alt="carousel-img-1" />
-          <img class="carouselImg" src={image3} alt="carousel-img-3" />
-          <img class="carouselImg" src={image4} alt="carousel-img-4" />
-          <img class="carouselImg" src={image5} alt="carousel-img-5" />
+          <img class="carouselImg" src="https://ipfs.io/ipfs/QmTBFoUfbm28KhCcyWCTrxzhUtrUNDh76h2NH5uem4HR3R?filename=carousel1.jpeg" alt="carousel-img-1" />
+          <img class="carouselImg" src="https://ipfs.io/ipfs/QmQwcwDefDvSJkyRC7wfG2sxeefaUKyhLDDBirAthwXHAT?filename=carousel2.jpeg" alt="carousel-img-1" />
+          <img class="carouselImg" src="https://ipfs.io/ipfs/QmVEfqQMWBQUcQXLNFYsPcKCL3sJeMfuKv2VKn1xHfXkQB?filename=carousel3.jpeg" alt="carousel-img-3" />
+          <img class="carouselImg" src="https://ipfs.io/ipfs/QmPyttnyMhqE1fnSz3ZbanjBCFhQQQUZcMfjWKX5wszEtK?filename=carousel4.jpeg" alt="carousel-img-4" />
+          <img class="carouselImg" src="https://ipfs.io/ipfs/Qmax5YhfqpiJR5MXpwUrqvr7nsvERE1R58Uvfy9jm3ukHs?filename=carousel5.jpeg" alt="carousel-img-5" />
         </Carousel>
       </div>
       <div class="overlay-carousel">
