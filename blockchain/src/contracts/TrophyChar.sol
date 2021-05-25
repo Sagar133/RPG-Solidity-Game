@@ -28,6 +28,7 @@ contract TrophyChar is ERC721URIStorage, VRFConsumerBase {
         uint256 worth;
         string name;
         uint256 levelPass;
+        string image;
     }
 
     Trophy[] public trophies;
@@ -92,7 +93,8 @@ contract TrophyChar is ERC721URIStorage, VRFConsumerBase {
                 rarity,
                 worth,
                 requestToTrophyName[requestId],
-                requestToLevel[requestId]
+                requestToLevel[requestId],
+                requestNftURI[requestId]
             )
         );
 
@@ -109,7 +111,8 @@ contract TrophyChar is ERC721URIStorage, VRFConsumerBase {
             rarity,
             worth,
             requestToTrophyName[requestId],
-            requestToLevel[requestId]
+            requestToLevel[requestId],
+            requestNftURI[requestId]
         );
 
         //_safeMint(requestToSender[requestId], newId);
