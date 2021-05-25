@@ -1,19 +1,19 @@
 // SPDX-License-Identifier: MIT
-
-pragma solidity ^0.6.12;
+pragma solidity ^0.8.0;
 
 // const RINKEBY_VRF_COORDINATOR = '0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B'
 // const RINKEBY_LINKTOKEN = '0x01BE23585060835E02B77ef475b0Cc51aA1e0709'
 // const RINKEBY_KEYHASH = '0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311'
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "./link/VRFConsumerBase.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
+import {SafeMath} from "./utils/Math.sol";
 
-contract TrophyChar is ERC721, VRFConsumerBase {
+contract TrophyChar is ERC721URIStorage, VRFConsumerBase {
     using SafeMath for uint256;
     using Strings for string;
+    
     bytes32 public keyHash;
     address public VRFCoordinator;
     uint256 internal fee;
@@ -37,6 +37,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
     mapping(bytes32 => address) requestToSender;
     mapping(bytes32 => address) requestAddress;
     mapping(bytes32 => uint256) requestToTokenId;
+    mapping(bytes32 => string) requestNftURI;
     mapping(address => mapping(uint256 => Trophy)) public usersNft;
     mapping(address => uint256) public usersNftCount;
 
@@ -59,7 +60,8 @@ contract TrophyChar is ERC721, VRFConsumerBase {
         uint256 userProvidedSeed,
         string memory name,
         uint256 levelPass,
-        address walletAddress
+        address walletAddress,
+        string memory _tokenURI
     ) public returns (bytes32) {
         require(
             LINK.balanceOf(address(this)) >= fee,
@@ -70,6 +72,7 @@ contract TrophyChar is ERC721, VRFConsumerBase {
         requestToLevel[requestId] = levelPass;
         requestToSender[requestId] = msg.sender;
         requestAddress[requestId] = walletAddress;
+        requestNftURI[requestId] = _tokenURI;
 
         return requestId;
     }
@@ -109,19 +112,9 @@ contract TrophyChar is ERC721, VRFConsumerBase {
             requestToLevel[requestId]
         );
 
+        //_safeMint(requestToSender[requestId], newId);
         _safeMint(requestToSender[requestId], newId);
-    }
-
-    function setTokenURI(uint256 tokenId, string memory _tokenURI) public {
-        require(
-            _isApprovedOrOwner(_msgSender(), tokenId),
-            "ERC721: transfer caller is not owner nor approved"
-        );
-        _setTokenURI(tokenId, _tokenURI);
-    }
-
-    function getTokenURI(uint256 tokenId) public view returns (string memory) {
-        return tokenURI(tokenId);
+        _setTokenURI(newId, requestNftURI[requestId]);
     }
 
     function getLevel(uint256 tokenId) public view returns (uint256) {
