@@ -127,7 +127,8 @@ import Walltorch from './treasure/walltorch'
 import Web3 from 'web3'
 import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
 import TropyChar from '../blockchain/src/abis/TrophyChar.json'
-
+const { create } = require('ipfs-http-client')
+const client = create('http://ipfs.infura.io:5001')
 
 var cursors
 var faune, lizard
@@ -156,8 +157,21 @@ let speed = 150
 class MyGame extends Phaser.Scene {
     constructor() {
         super();
+        this.state = {
+            // account: '',
+            // name: '',
+            // loading: true,
+            // description: '',
+            // buffer: null,
+            imageHash: '',
+            image: '',
+            // touched: {
+            //     name: false,
+            //     symbol: false
+            // }
+        }
         loadWeb3()
-        //loadBlockchainData()
+        // loadBlockchainData()
         usersNFTCount()
     }
 
@@ -1446,10 +1460,57 @@ const rewardNFT = () => {
             1,
             'sagar',
             1,
-            data[0]
+            data[0],
+            this.state.image
+
         ).send({ from: data[0] })
     })
+
+    let file
+    let image
+    client.add(this.state.image)
+        .then(function (image){
+            file = `https://ipfs.io/ipfs/${image}`
+        })
+    this.setState({image: file})
+
+    let imageHash
+    client.add(JSON.stringify({
+        "image": this.state.image
+    }))
+        .then(function(image){
+            imageHash = `https://ipfs.io/ipfs/${image}`
+            console.log('IPFS HASH', ipfsHash)
+        })
+        .catch(function(err){
+            console.log('Fail: ',err)
+        })
+
+        console.log(ipfsHash)
+        this.setState({ imageHash: imageHash})
+
+
+
+
 }
+
+// const rewardNFT = () => {
+//     const networkData = TropyChar.networks[4]
+//     const address = networkData.address
+//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+
+//     const accounts = web3.eth.getAccounts()
+//     accounts.then(data => {
+//         console.log('data', data);
+//         NFTContract.methods.requestNewRandomTrophy(
+//             1,
+//             'sagar',
+//             1,
+//             data[0],
+// 	`here send the ifs image hash`
+//         ).send({ from: data[0] })
+//     })
+// }
 
 const config = {
     type: Phaser.AUTO,

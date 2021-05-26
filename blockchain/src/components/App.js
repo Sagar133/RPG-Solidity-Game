@@ -165,8 +165,8 @@ class App extends Component {
 
               const nftMint = ["https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png", "https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png", "https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png", "https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png", "https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png"]
               const random = Math.floor(Math.random() * nftMint.length);
-              console.log(random, nftMint[random]);
-              console.log(levelPass, name, tokenId, rarity, worth);
+              // console.log(random, nftMint[random]);
+              // console.log(levelPass, name, tokenId, rarity, worth);
               return (
                 <div key={key} className='gift'>
                   <div className="giftBox">
