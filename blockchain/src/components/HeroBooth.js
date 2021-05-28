@@ -28,6 +28,7 @@ export default function App() {
                 <Box
                   img={`https://gateway.pinata.cloud/ipfs/${hero.image}`}
                   name={hero.name}
+                  walletAddress={hero.walletAddress}
                 />
               ))
             : null}

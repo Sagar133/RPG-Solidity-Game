@@ -3,7 +3,7 @@ import { Image, Button } from 'react-bootstrap'
 import { BsHeart } from "react-icons/bs";
 import {FiThumbsUp} from 'react-icons/fi';
 
-export default function Box({name,img}) {
+export default function Box({name,img,walletAddress}) {
 
   // function handleUpvote(){
   //       const requestOptions = {
