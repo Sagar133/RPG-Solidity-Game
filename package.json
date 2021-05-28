@@ -34,7 +34,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.0.0",
+    "@openzeppelin/contracts": "^4.1.0",
     "concurrently": "^6.1.0",
     "phaser": "^3.50.0",
     "phaser-camera-offset": "^1.0.1",
