@@ -20,14 +20,19 @@ export default function App() {
    };
   return (
     <div className="main screen">
-      <Header title={'Welcome to the Hero Voting Page'} />
+      <Header title={"Welcome to the Hero Voting Page"} />
       <div className="body">
         <div class="flex-container">
-          {heroes?heroes.map((hero)=>(
-                     <Box img="https://ipfs.io/ipfs/QmeesF1xg9R6Lbg2dg3xx8bC33SVFfXsFVoDFWJpfocgNU?filename=death.png" name={hero.name} />
-          )):null}
+          {heroes
+            ? heroes.map((hero) => (
+                <Box
+                  img={`https://gateway.pinata.cloud/ipfs/${hero.image}`}
+                  name={hero.name}
+                />
+              ))
+            : null}
         </div>
       </div>
     </div>
-  )
+  );
 }
