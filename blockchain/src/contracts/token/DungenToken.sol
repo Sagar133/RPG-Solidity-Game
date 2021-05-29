@@ -2,10 +2,11 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+// import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
 
 import "../ICustomERC20.sol";
 
-contract DungenCoin is ICustomERC20, ERC20 {
+contract DungenToken is ICustomERC20, ERC20 {
     /**
      * @dev State varaibels.
      */
@@ -90,5 +91,17 @@ contract DungenCoin is ICustomERC20, ERC20 {
         onlyController
     {
         _burn(account, amount);
+    }
+
+    function vote(address _to)
+    public 
+    payable{
+        transferFrom(msg.sender, _to, 1);
+    }
+
+    function reward(address account, uint256 amount)
+        public
+    {
+        _mint(account, amount);
     }
 }

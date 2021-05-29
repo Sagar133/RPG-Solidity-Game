@@ -9,7 +9,7 @@ import { Image } from 'react-bootstrap'
 import ChainlinkLogo from '../assets/chainlink.png'
 
 import TropyChar from '../abis/TrophyChar.json'
-import DungeonToken from '../abis/DungeonToken.json'
+import DungenToken from '../abis/DungenToken.json'
 
 class App extends Component {
 
@@ -24,7 +24,8 @@ class App extends Component {
       contract: null,
       usersNftCount: 0,
       trophies: [],
-      loading: true
+      loading: true, 
+      image: ''
     };
     this.loadWeb3();
     this.loadBlockchainData();
@@ -49,13 +50,13 @@ class App extends Component {
     this.setState({ account: accounts[0] })
 
     const networkId = await web3.eth.net.getId()
-    const networkData = TropyChar.networks[networkId]
+    const networkData = TropyChar.networks[80001]
     if (networkData) {
       const abi = TropyChar.abi;
       const address = networkData.address
       const contract = new web3.eth.Contract(abi, address)
-      const contract2 = new web3.eth.Contract(DungeonToken.abi, DungeonToken.networks[networkId].address)
-      //console.log(this.state.account)
+      const contract2 = new web3.eth.Contract(DungenToken.abi, DungenToken.networks[80001].address)
+      console.log('network: ',networkId)
       this.setState({ contract })
       this.setState({ contract2 })
 
@@ -94,7 +95,7 @@ class App extends Component {
             className="navbar-brand col-sm-3 col-md-2 mr-0 text-header"
             href=""
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer"Random
           >
             The Dungeon Crawler
           </a>
@@ -110,26 +111,31 @@ class App extends Component {
           <div className='row'>
             <main role='main' className='col-lg-12 d-flex text-center'>
               <div className="trophy-section-header">
-                <h5 className="trophy-title"><span>  </span>Your Trophy Cabinet <span> </span></h5>
+                <h5 className="trophy-ticonsoletle"><span>  </span>Your Trophy Cabinet <span> </span></h5>
                 <h6 className="text-header1 white">Powered by <img src={ChainlinkLogo} className='chainlink' /> <a className="hovero" href="https://docs.chain.link/docs/chainlink-vrf"><span className="hovero">Chainlink VRF</span></a>  </h6>
                 {/* <h5 className="text col-md-6 col-sm">Your Trophy Cabinet</h5> </div> */}
                 {
                   // this.state.loading ? (
                   // <Spinner className='spinner' color="info" />
                   // <Spinner color="info" />
-                  // ):
+                  // ):Random
                   <button
                     type="submit"
                     className="btn btn-link btn-block btn-sm mint-btn dispToken"
                     onClick={(event) => {
                       event.preventDefault()
+                      const nftMint = ["https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png", "https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png", "https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png", "https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png", "https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png"]
+                      const random = Math.floor(Math.random() * nftMint.length);  
                       console.log('triggered');
                       this.state.contract.methods.requestNewRandomTrophy(
                         1,
                         'sagar',
                         1,
                         // '0x775C72FB1C28c46F5E9976FFa08F348298fBCEC0'
-                        this.state.account
+                        this.state.account,
+                        // _tokenURI
+                        nftMint[random]
+                        
                       ).send({ from: this.state.account }).on('transactionHash', (hash) => {
                         //console.log('true');
                         this.setState({ loading: false })
@@ -156,21 +162,21 @@ class App extends Component {
 
             {/* <div className='row trophy-cabine'> */}
             {this.state.trophies.map((trophy, key) => {
-              //console.log(trophy, key);
+              console.log(trophy, key);
               let levelPass = trophy.levelPass.toString()
               let name = trophy.name.toString()
               let tokenId = trophy.tokenId.toString()
               let rarity = trophy.rarity.toString()
               let worth = trophy.worth.toString()
-
-              const nftMint = ["https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png", "https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png", "https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png", "https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png", "https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png"]
-              const random = Math.floor(Math.random() * nftMint.length);
+              let image = trophy.image.toString()
+              // const nftMint = ["https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png", "https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png", "https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png", "https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png", "https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png"]
+              // const random = Math.floor(Math.random() * nftMint.length);
               // console.log(random, nftMint[random]);
               // console.log(levelPass, name, tokenId, rarity, worth);
               return (
                 <div key={key} className='gift'>
                   <div className="giftBox">
-                    <Image src={nftMint[random]} roundedCircle style={{ height: 100, width: 100, alignSelf: 'center', justifyContent: 'center' }} />
+                    <Image src={image} roundedCircle style={{ height: 100, width: 100, alignSelf: 'center', justifyContent: 'center' }} />
                   </div>
                   <span className="trophy-info">Level: <span className="values">{levelPass}</span></span><br />
                   <span className="trophy-info">tokenID: <span className="values">{tokenId}</span></span><br />
