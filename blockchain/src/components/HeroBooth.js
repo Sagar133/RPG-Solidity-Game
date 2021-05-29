@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import '../styles/booth.css'
-import Header from './Header'
+import Header from './HeroHeader'
 import Box from './Box'
 
 
@@ -25,6 +25,7 @@ export default function App() {
         <div class="flex-container">
           {heroes
             ? heroes.map((hero) => (
+              hero.isStory?null:
                 <Box
                   img={`https://gateway.pinata.cloud/ipfs/${hero.image}`}
                   name={hero.name}

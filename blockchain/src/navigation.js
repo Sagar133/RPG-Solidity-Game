@@ -22,7 +22,10 @@ export default function Routes () {
                 <Switch>
                     <Route path="/" exact component={Landing} />
                     <Route path="/Selection" exact component={Selection} />
+
                     <Route path="/Upload" exact component={Upload} />
+                    <Route path="/HeroUpload" exact component={Upload} />
+                    <Route path="/StoryUpload" exact component={Upload} />
                     <Route path="/Login" exact component={Login} />
                     <Route path="/HeroBooth" exact component={HeroBooth} />
                     <Route path="/StoryBooth" exact component={StoryBooth} />

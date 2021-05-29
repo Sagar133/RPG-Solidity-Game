@@ -1,55 +1,60 @@
-import React, {useState} from 'react';
-import '../styles/App.css'
+import React, { useState } from "react";
+import "../styles/App.css";
 const formData = {
-    name:"",
-    description:"",
-    walletAddress:"",
-    email:"",
-    file:[],
-    };
+  name: "",
+  description: "",
+  walletAddress: "",
+  email: "",
+  file: [],
+  isStory: false,
+};
 
 export default function App() {
   const [values, setValues] = useState(formData);
-
+  const pathname = window.location.href.split("/").pop();
   const handleInputChange = (e) => {
-    if(e.target.name!=="file"){
-        const { name, value } = e.target;
-        setValues({
+    if (e.target.name !== "file") {
+      const { name, value } = e.target;
+      setValues({
         ...values,
         [name]: value,
-        });
-    }
-    else{
-        const fileName=e.target.files[0];
-        setValues({
-            ...values,
-            [e.target.name]:fileName
-        });
+      });
+    } else {
+      const fileName = e.target.files[0];
+      setValues({
+        ...values,
+        [e.target.name]: fileName,
+      });
     }
   };
   const handleSubmit = (e) => {
-        const data = new FormData();
-
-        for (const name in values) {
-          data.append(name, values[name]);
-        }
+    if (pathname === "StoryUpload")
+      setValues({
+        ...values,
+        isStory: true,
+      });
+    const data = new FormData();
+    for (const name in values) {
+      data.append(name, values[name]);
+    }
     e.preventDefault();
-    console.log("form is going with",data);
+    console.log("form is going with", data);
     fetch("https://dungeon-crawler-1.herokuapp.com/v1/character/new", {
       method: "POST",
       body: data,
     })
       .then((res) => res.json())
       .then((json) => {
-          console.log(json)
-          setValues({
-            name: "",
-            description: "",
-            walletAddress: "",
-            email: "",
-            file: [],
-          });
+        console.log(json);
+        setValues({
+          name: "",
+          description: "",
+          walletAddress: "",
+          email: "",
+          file: [],
+          isStory: false,
         });
+      });
   };
   return (
     <div className="main">
@@ -68,7 +73,7 @@ export default function App() {
               className="form-control"
             />
           </div>
-
+          {console.log(pathname)}
           <div className="form-group">
             <label className="text-header1">Character Descripton</label>
             <input
@@ -112,8 +117,12 @@ export default function App() {
               name="file"
             />
           </div>
-    {console.log(values)}
-          <button onClick={handleSubmit} type="submit" className="btn btn-primary btn-block">
+          {console.log(values)}
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            className="btn btn-primary btn-block"
+          >
             Submit
           </button>
         </div>
@@ -121,22 +130,22 @@ export default function App() {
     </div>
   );
 }
-    // <form enctype="multipart/form-data" method="POST" action="/v1/character/new">
-    //     <label for="name">Character Name:</label>
-    //     <input type="text" name="name" />
-    //     <br/>
-    //     <label for="desc" >Character Descripton:</label>
-    //     <input type="text" name="desc" value="test"/>
-    //     <br/>
-    //     <label for="email" >Email:</label>
-    //     <input type="text" name="email" value="test@email.com"/>
-    //     <br/>
-    //     <label for="walletAddress" >Wallet Addr:</label>
-    //     <input type="text" name="walletAddress"value="0x12345" />
-    //     <br/>
-    //     <label for="file">Upload File</label>
-    //     <input type="file" name="file"/>
-    //     <br/>
-    //     <input type="hidden" name="isStory" value="no" >
-    //     <input type="submit" />
-    // </form>
+// <form enctype="multipart/form-data" method="POST" action="/v1/character/new">
+//     <label for="name">Character Name:</label>
+//     <input type="text" name="name" />
+//     <br/>
+//     <label for="desc" >Character Descripton:</label>
+//     <input type="text" name="desc" value="test"/>
+//     <br/>
+//     <label for="email" >Email:</label>
+//     <input type="text" name="email" value="test@email.com"/>
+//     <br/>
+//     <label for="walletAddress" >Wallet Addr:</label>
+//     <input type="text" name="walletAddress"value="0x12345" />
+//     <br/>
+//     <label for="file">Upload File</label>
+//     <input type="file" name="file"/>
+//     <br/>
+//     <input type="hidden" name="isStory" value="no" >
+//     <input type="submit" />
+// </form>
