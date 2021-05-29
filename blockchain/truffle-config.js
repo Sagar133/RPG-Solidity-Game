@@ -7,6 +7,7 @@ const Web3 = require("web3");
 const mnemonic = process.env.MNEMONIC
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 const Url = process.env.RPC_URL
+console.log(PRIVATE_KEY)
 
 module.exports = {
   networks: {
@@ -29,6 +30,20 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true
       // addressIndex: 2
+    },
+    polygon: {
+      
+      provider: function () {
+        return new HDWalletProvider(PRIVATE_KEY, "https://rpc-mumbai.matic.today")
+      },
+      network_id: "80001",
+      networkCheckTimeout: 1000000,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+      gas: "4500000",
+      gasPrice: "10000000000",
+      // addressIndex: 2
+
     }
   },
   contracts_directory: './src/contracts/',

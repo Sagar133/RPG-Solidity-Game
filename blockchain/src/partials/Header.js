@@ -5,7 +5,7 @@ import Web3 from 'web3';
 import { Link } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 import TropyChar from '../abis/TrophyChar.json'
-import DungeonToken from '../abis/DungeonToken.json'
+import DungenToken from '../abis/DungenToken.json'
 import getWeb3 from "../utils/web3";
 import { UserContext } from "../utils/UserContext"; 
 import Avatar from "./Avatar/Avatar"
