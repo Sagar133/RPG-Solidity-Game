@@ -125,10 +125,9 @@ import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
 
 import Web3 from 'web3'
-import DungenToken from '../blockchain/src/abis/DungenToken.json'
+import MaticLink from '../blockchain/src/abis/MaticLink.json'
 import TropyChar from '../blockchain/src/abis/TrophyChar.json'
-const { create } = require('ipfs-http-client')
-const client = create('http://ipfs.infura.io:5001')
+
 
 var cursors
 var faune, lizard
@@ -157,21 +156,8 @@ let speed = 150
 class MyGame extends Phaser.Scene {
     constructor() {
         super();
-        this.state = {
-            // account: '',
-            // name: '',
-            // loading: true,
-            // description: '',
-            // buffer: null,
-            imageHash: '',
-            image: '',
-            // touched: {
-            //     name: false,
-            //     symbol: false
-            // }
-        }
         loadWeb3()
-        // loadBlockchainData()
+        loadBlockchainData()
         usersNFTCount()
     }
 
@@ -1402,12 +1388,12 @@ let contract
 const loadBlockchainData = () => {
     const web3 = window.web3
     const networkId = web3.eth.net.getId()
-    const networkData = DungenToken.networks[80001]
+    const networkData = MaticLink.networks[80001]
 
     if (networkData) {
         const abi = []
         const address = networkData.address
-        contract = new web3.eth.Contract(DungenToken.abi, address)
+        contract = new web3.eth.Contract(MaticLink.abi, address)
 
     } else {
         window.alert('Smart contract not deployed to the detected network')
@@ -1422,8 +1408,7 @@ const mintReward = () => {
     const accounts = web3.eth.getAccounts()
     accounts.then(data => {
         console.log('data', data);
-        // contract.methods.reward(data[0]).send({ from: data[0] })
-        contract.methods.mint(data[0], 10).send({ from: data[0] })
+        contract.methods.reward(data[0], 10**18).send({ from: data[0] })
     })
 }
 
@@ -1431,10 +1416,13 @@ const usersNFTCount = () => {
     const networkData = TropyChar.networks[80001]
     const address = networkData.address
     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+    
 
     const accounts = web3.eth.getAccounts()
     accounts.then(data => {
         console.log('data', data);
+        const nftMint = ["https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png", "https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png", "https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png", "https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png", "https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png"]
+        const random = Math.floor(Math.random() * nftMint.length);
         let nftCount = NFTContract.methods.usersNftCount(data[0]).call()
         nftCount.then(nftData => {
             console.log(nftData);
@@ -1444,7 +1432,8 @@ const usersNFTCount = () => {
             1,
             'sagar',
             1,
-            data[0]
+            data[0],
+            nftMint[random]
         ).send({ from: data[0] })
     })
 }
@@ -1452,9 +1441,10 @@ const usersNFTCount = () => {
 const rewardNFT = () => {
     const networkData = TropyChar.networks[80001]
     const address = networkData.address
-    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
     const nftMint = ["https://ipfs.io/ipfs/QmPbBTESpMSsGjKisM73deE3PLqA76s2zh1nHhvAkAfYf4?filename=btc.png", "https://ipfs.io/ipfs/Qmb3jBv3xdDettAQokTxQc5T4G1buxY9oxRiSA9YepeRrP?filename=crystal.png", "https://ipfs.io/ipfs/QmZg13ohhyY9xBYnhF1XbAm8qjW43SjxDXsXTyTGFkezWX?filename=chest.png", "https://ipfs.io/ipfs/QmNyZd4czMAY8rxYjGK6b8SR69m2W9FHbkVsnCJstewkXY?filename=god.png", "https://ipfs.io/ipfs/QmXHYB8eEpEQjZq6Hc9vCHdPGwpHPjZfoRYQNwqNZVsKQ8?filename=diamond.png"]
     const random = Math.floor(Math.random() * nftMint.length);
+    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+
     const accounts = web3.eth.getAccounts()
     accounts.then(data => {
         console.log('data', data);
@@ -1464,55 +1454,10 @@ const rewardNFT = () => {
             1,
             data[0],
             nftMint[random]
-
+            
         ).send({ from: data[0] })
     })
-
-    // let file
-    // let image
-    // client.add(this.state.image)
-    //     .then(function (image){
-    //         file = `https://ipfs.io/ipfs/${image}`
-    //     })
-    // this.setState({image: file})
-
-    // let imageHash
-    // client.add(JSON.stringify({
-    //     "image": this.state.image
-    // }))
-    //     .then(function(image){
-    //         imageHash = `https://ipfs.io/ipfs/${image}`
-    //         console.log('IPFS HASH', ipfsHash)
-    //     })
-    //     .catch(function(err){
-    //         console.log('Fail: ',err)
-    //     })
-
-    //     console.log(ipfsHash)
-    //     this.setState({ imageHash: imageHash})
-
-
-
-
 }
-
-// const rewardNFT = () => {
-//     const networkData = TropyChar.networks[4]
-//     const address = networkData.address
-//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
-
-//     const accounts = web3.eth.getAccounts()
-//     accounts.then(data => {
-//         console.log('data', data);
-//         NFTContract.methods.requestNewRandomTrophy(
-//             1,
-//             'sagar',
-//             1,
-//             data[0],
-// 	`here send the ifs image hash`
-//         ).send({ from: data[0] })
-//     })
-// }
 
 const config = {
     type: Phaser.AUTO,
