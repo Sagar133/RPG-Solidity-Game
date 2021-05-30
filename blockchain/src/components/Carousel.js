@@ -12,11 +12,10 @@ const CarouselSection = () => {
         <Carousel
           plugins={[
             'infinite',
-            'arrows',
            {
              resolve: autoplayPlugin,
              options: {
-               interval: 4000,
+               interval: 3000,
              }
            },
            {
