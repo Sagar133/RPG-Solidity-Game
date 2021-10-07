@@ -1616,7 +1616,7 @@ const rewardNFT = () => {
   });
 };
 
-const config = {
+export const config = {
   type: Phaser.AUTO,
   parent: "phaser-example",
   width: 800,
@@ -1634,6 +1634,5 @@ const config = {
   },
 };
 
-const game = new Phaser.Game(config);
 
 export default MyGame;
