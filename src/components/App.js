@@ -1,12 +1,14 @@
 import React from 'react'
-import '../styles/App.css'
-import history from '../history';
-import Angel from '../assets/Angel.png'
-import Castle from '../assets/Castle.png'
+import './App.css'
+import Angel from '../assets/angel.png'
+import Castle from '../assets/castle.png'
+import { IonPhaser } from '@ion-phaser/react'
+import MyGame from '../game';
 
 export default function App() {
   return (
     <div className="main">
+      <IonPhaser game={MyGame} initialize={initialize} />
       <div className="header">
           <h1>Welcome to the Dungeon Crawler</h1>
       </div>

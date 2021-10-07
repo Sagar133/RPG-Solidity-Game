@@ -6,7 +6,8 @@
   "scripts": {
     "dapp": "concurrently -k -p \"[{name}]\" -n \"Game,Frontend\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run start\" \"npm run start --prefix blockchain\"",
     "build": "webpack --config webpack/prod.js ",
-    "start": "webpack-dev-server --config webpack/base.js --open"
+    "start": "webpack-dev-server --config webpack/base.js --open",
+    "lint": "eslint \"src/**/*\" --ext .js --max-warnings 0 --fix"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,9 @@
   },
   "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "babel-loader": "^8.0.6",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^3.2.0",
@@ -34,10 +35,19 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "@ion-phaser/react": "^1.3.0",
     "@openzeppelin/contracts": "^4.1.0",
+    "@project-serum/anchor": "*",
+    "@solana/wallet-adapter-base": "^0.6.0",
+    "@solana/wallet-adapter-wallets": "^0.10.1",
+    "@solana/web3.js": "^1.29.2",
     "concurrently": "^6.1.0",
     "phaser": "^3.50.0",
     "phaser-camera-offset": "^1.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.3.0",
     "web3": "^1.3.5"
   }
 }
